@@ -48,10 +48,19 @@ export default function Process() {
 
       <div className="container relative z-10">
         <div className="text-center mb-16">
-          <span className="section-tag-dark">מהחווה לכוס</span>
-          <h2 className="font-serif font-black text-section text-white" style={{ overflow: 'visible' }}>
+          <span className="section-label" style={{ color: 'rgba(90,155,42,0.8)', textAlign: 'center', display: 'block' }}>מהחווה לכוס</span>
+          <h2
+            style={{
+              fontFamily: 'var(--f-display)',
+              fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+              fontWeight: 800,
+              color: 'var(--bg)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.04em',
+            }}
+          >
             מהחווה{' '}
-            <em className="italic text-gradient">
+            <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--accent-2)' }}>
               לכוס
             </em>
           </h2>

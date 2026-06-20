@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import MarqueeBar from './components/MarqueeBar'
 import About from './components/About'
 import Products from './components/Products'
+import GiftSets from './components/GiftSets'
 import Process from './components/Process'
 import Quote from './components/Quote'
 import Testimonials from './components/Testimonials'
@@ -25,6 +26,7 @@ export default function App() {
         <MarqueeBar />
         <About />
         <Products />
+        <GiftSets />
         <Process />
         <Quote />
         <Testimonials />

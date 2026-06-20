@@ -3,33 +3,29 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '../context/CartContext'
 
 const navLinks = [
-  { href: '#about', label: 'הסיפור שלנו' },
-  { href: '#products', label: 'מוצרים' },
-  { href: '#process', label: 'תהליך' },
-  { href: '#testimonials', label: 'לקוחות' },
+  { href: '#products', label: 'חנות' },
+  { href: '#gifts',    label: 'סטים' },
+  { href: '#about',    label: 'אודות' },
+  { href: '#contact',  label: 'צור קשר' },
 ]
 
 function smoothScroll(e, href) {
   e.preventDefault()
   if (href === '#') return
   const el = document.querySelector(href)
-  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth' })
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' })
 }
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled,  setScrolled]  = useState(false)
+  const [menuOpen,  setMenuOpen]  = useState(false)
   const { count, setIsOpen: openCart } = useCart()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 70)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
-
-  useEffect(() => {
-    if (window.innerWidth >= 1024 && menuOpen) closeMenu()
-  })
 
   const closeMenu = () => { setMenuOpen(false); document.body.style.overflow = '' }
   const toggleMenu = () => {
@@ -38,107 +34,179 @@ export default function Header() {
     document.body.style.overflow = next ? 'hidden' : ''
   }
 
-  const dark = !scrolled && !menuOpen
-
   return (
     <>
       <header
         role="banner"
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'py-3 bg-cream/92 backdrop-blur-2xl border-b border-ink/[0.06]'
-            : 'py-5'
-        }`}
+        style={{
+          position: 'fixed',
+          top: 0,
+          insetInline: 0,
+          zIndex: 50,
+          padding: scrolled ? '0.75rem 0' : '1rem 0',
+          background: scrolled ? 'rgba(242,237,226,0.92)' : 'transparent',
+          borderBottom: scrolled ? '1px solid var(--line)' : '1px solid transparent',
+          backdropFilter: scrolled ? 'blur(18px)' : 'none',
+          transition: 'all 0.4s ease',
+        }}
       >
-        <div className="container flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#hero"
-            onClick={(e) => smoothScroll(e, '#hero')}
-            aria-label="jonny's matcha — חזרה לראש הדף"
-            dir="ltr"
-            className={`font-sans font-black text-2xl tracking-tight transition-colors duration-500 ${
-              dark ? 'text-white' : 'text-ink'
-            }`}
+        <div
+          className="container"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+        >
+          {/* Cart — right side (start in RTL) */}
+          <button
+            onClick={() => openCart(true)}
+            aria-label={`עגלת קניות — ${count} פריטים`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              padding: '0.5rem 1.1rem',
+              borderRadius: '999px',
+              border: '1px solid var(--line-2)',
+              background: 'transparent',
+              color: 'var(--ink)',
+              fontWeight: 700,
+              fontSize: '0.8rem',
+              letterSpacing: '0.06em',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              position: 'relative',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+              e.currentTarget.style.color = 'var(--accent)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--line-2)'
+              e.currentTarget.style.color = 'var(--ink)'
+            }}
           >
-            jonny's <span className="text-gradient">matcha</span>
-          </a>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+            <span>עגלה</span>
+            {count > 0 && (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '17px',
+                  height: '17px',
+                  borderRadius: '50%',
+                  background: 'var(--ink)',
+                  color: 'var(--bg)',
+                  fontSize: '10px',
+                  fontWeight: 900,
+                }}
+                aria-hidden="true"
+              >
+                {count}
+              </span>
+            )}
+          </button>
 
-          {/* Desktop nav */}
-          <nav role="navigation" aria-label="ניווט ראשי" className="hidden lg:flex items-center gap-7">
+          {/* Desktop nav — center, glass pill */}
+          <nav
+            role="navigation"
+            aria-label="ניווט ראשי"
+            className="hidden lg:flex"
+            style={{
+              alignItems: 'center',
+              gap: '0.15rem',
+              background: 'rgba(10,20,7,0.04)',
+              border: '1px solid var(--line)',
+              borderRadius: '999px',
+              padding: '0.3rem 0.4rem',
+            }}
+          >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => smoothScroll(e, link.href)}
-                className={`text-base font-medium transition-colors duration-200 ${
-                  dark ? 'text-white/65 hover:text-white' : 'text-ink-soft hover:text-ink'
-                }`}
+                style={{
+                  display: 'block',
+                  padding: '0.35rem 1rem',
+                  borderRadius: '999px',
+                  color: 'var(--mute)',
+                  fontSize: '0.84rem',
+                  fontWeight: 500,
+                  transition: 'color 0.2s, background 0.2s',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--ink)'
+                  e.currentTarget.style.background = 'rgba(10,20,7,0.07)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--mute)'
+                  e.currentTarget.style.background = 'transparent'
+                }}
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Actions */}
-          <div className="flex items-center gap-3">
-            {/* Cart button */}
-            <button
-              onClick={() => openCart(true)}
-              aria-label={`עגלת קניות — ${count} פריטים`}
-              className={`relative p-2 rounded-full transition-all duration-200 ${
-                dark ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-ink-soft hover:text-ink hover:bg-ink/5'
-              }`}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-                <line x1="3" y1="6" x2="21" y2="6"/>
-                <path d="M16 10a4 4 0 01-8 0"/>
-              </svg>
-              {count > 0 && (
-                <span
-                  className="absolute -top-0.5 -left-0.5 w-4 h-4 rounded-full text-white text-[10px] font-bold
-                             flex items-center justify-center"
-                  style={{ background: 'var(--c-matcha)' }}
-                  aria-hidden="true"
-                >
-                  {count}
-                </span>
-              )}
-            </button>
-
-            {/* CTA */}
+          {/* Logo + mobile burger — left side (end in RTL) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <a
-              href="#contact"
-              onClick={(e) => smoothScroll(e, '#contact')}
-              className={`hidden lg:block text-base font-bold px-6 py-3 rounded-full transition-all duration-300 ${
-                dark
-                  ? 'bg-white/15 text-white border border-white/20 hover:bg-white/25'
-                  : 'text-white hover:opacity-90'
-              }`}
-              style={dark ? {} : { background: 'var(--c-forest)' }}
+              href="#hero"
+              onClick={(e) => smoothScroll(e, '#hero')}
+              dir="ltr"
+              aria-label="jonny's matcha — חזרה לראש הדף"
+              style={{
+                fontFamily: 'var(--f-display)',
+                fontSize: '1.05rem',
+                letterSpacing: '-0.03em',
+                color: 'var(--ink)',
+                textDecoration: 'none',
+              }}
             >
-              הזמינו עכשיו
+              <span style={{ fontWeight: 800 }}>jonny's</span>{' '}
+              <span style={{ fontWeight: 300, color: 'var(--accent)' }}>matcha</span>
             </a>
 
-            {/* Mobile toggle */}
+            {/* Mobile burger */}
             <button
               onClick={toggleMenu}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               aria-label={menuOpen ? 'סגור תפריט' : 'פתח תפריט'}
-              className="lg:hidden flex flex-col gap-[5px] p-2"
+              className="lg:hidden"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '5px',
+                padding: '0.35rem',
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+              }}
             >
-              {[
-                menuOpen ? 'rotate-45 translate-y-[7px]' : '',
-                menuOpen ? 'opacity-0 scale-x-0' : '',
-                menuOpen ? '-rotate-45 -translate-y-[7px]' : '',
-              ].map((cls, i) => (
+              {[0, 1, 2].map((i) => (
                 <span
                   key={i}
-                  className={`block w-6 h-0.5 rounded transition-all duration-300 origin-center ${
-                    dark && !menuOpen ? 'bg-white' : 'bg-ink'
-                  } ${cls}`}
+                  style={{
+                    display: 'block',
+                    width: '22px',
+                    height: '1.5px',
+                    background: 'var(--ink)',
+                    borderRadius: '2px',
+                    transition: 'all 0.3s ease',
+                    transformOrigin: 'center',
+                    transform: menuOpen
+                      ? i === 0 ? 'rotate(45deg) translate(4.5px, 4.5px)'
+                        : i === 1 ? 'scaleX(0)'
+                        : 'rotate(-45deg) translate(4.5px, -4.5px)'
+                      : 'none',
+                    opacity: menuOpen && i === 1 ? 0 : 1,
+                  }}
                 />
               ))}
             </button>
@@ -146,7 +214,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -157,33 +225,52 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-40 bg-cream/97 backdrop-blur-xl
-                       flex flex-col items-center justify-center gap-6 lg:hidden"
+            transition={{ duration: 0.2 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 40,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1.75rem',
+              background: 'var(--bg)',
+            }}
           >
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { smoothScroll(e, link.href); closeMenu() }}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.07 }}
-                className="text-4xl font-bold text-ink hover:text-matcha-dark transition-colors"
+                transition={{ delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  fontFamily: 'var(--f-display)',
+                  fontSize: 'clamp(2rem, 6vw, 2.8rem)',
+                  fontWeight: 800,
+                  color: 'var(--ink)',
+                  letterSpacing: '-0.03em',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink)'}
               >
                 {link.label}
               </motion.a>
             ))}
-            <motion.a
-              href="#contact"
-              onClick={(e) => { smoothScroll(e, '#contact'); closeMenu() }}
-              initial={{ opacity: 0, y: 16 }}
+
+            <motion.button
+              onClick={() => { openCart(true); closeMenu() }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: navLinks.length * 0.07 }}
-              className="btn-gradient mt-2"
+              className="btn-dark"
+              style={{ marginTop: '0.5rem' }}
             >
-              <span>הזמינו עכשיו</span>
-            </motion.a>
+              עגלת קניות
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

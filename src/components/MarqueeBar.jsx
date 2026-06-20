@@ -1,49 +1,42 @@
-// Marquee — dual-copy technique for instant seamless loop, pure CSS
 const ITEMS = [
-  '100% Organic',
-  '✦ Single Origin · Uji, Japan',
-  '✦ משלוח חינם בהזמנה ראשונה',
-  '✦ Ceremonial Grade',
-  '✦ ללא חומרים משמרים',
-  '✦ Direct Trade',
-  '✦ No Additives',
-  '✦ אורגני מוסמך',
+  'ישירות מיפן',
+  '— +5,000 לקוחות מרוצים',
+  '— טעם שאין כמוהו',
+  '— משלוח חינם',
+  '— CEREMONIAL GRADE',
+  '— 100% ORGANIC',
+  '— SINGLE ORIGIN · UJI',
+  '— ישירות מהחוה',
 ]
 
 export default function MarqueeBar() {
   return (
     <div
-      className="overflow-hidden py-3.5 bg-matcha"
+      style={{ background: 'var(--ink)', overflow: 'hidden', padding: '0.85rem 0', direction: 'ltr' }}
       aria-label="יתרונות המוצר"
-      style={{ direction: 'ltr' }}
     >
-      {/*
-        Two identical sets rendered inside one flex container.
-        @keyframes marquee goes from 0 to translateX(-50%) = exactly one set width.
-        Perfectly seamless loop with no gap or flash.
-      */}
       <div className="marquee-track" aria-hidden="true">
-        {/* Copy 1 */}
-        {ITEMS.map((item, i) => (
+        {[...ITEMS, ...ITEMS].map((item, i) => (
           <span
-            key={`a${i}`}
-            className="inline-block text-white text-sm font-semibold tracking-widest uppercase whitespace-nowrap mx-8"
-          >
-            {item}
-          </span>
-        ))}
-        {/* Copy 2 — creates seamless join */}
-        {ITEMS.map((item, i) => (
-          <span
-            key={`b${i}`}
-            className="inline-block text-white text-sm font-semibold tracking-widest uppercase whitespace-nowrap mx-8"
+            key={i}
+            style={{
+              display: 'inline-block',
+              fontFamily: 'var(--f-display)',
+              fontSize: '0.72rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'rgba(242,237,226,0.75)',
+              whiteSpace: 'nowrap',
+              marginInline: '2.5rem',
+            }}
           >
             {item}
           </span>
         ))}
       </div>
 
-      {/* Screen-reader version */}
+      {/* Accessible text for screen readers */}
       <ul className="sr-only">
         {ITEMS.map((item) => <li key={item}>{item}</li>)}
       </ul>

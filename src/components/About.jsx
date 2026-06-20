@@ -13,7 +13,8 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-28 lg:py-36 bg-cream overflow-hidden"
+      className="relative py-28 lg:py-36 overflow-hidden"
+      style={{ background: 'var(--bg)' }}
       aria-label="הסיפור שלנו"
     >
       <div
@@ -73,12 +74,22 @@ export default function About() {
             whileInView="visible"
             viewport={viewport}
           >
-            <span className="section-tag-light">הסיפור שלנו</span>
+            <span className="section-label">הסיפור שלנו</span>
 
-            <h2 className="font-serif font-black text-section mb-6" style={{ color: 'var(--c-ink)', overflow: 'visible', lineHeight: 1.2 }}>
+            <h2
+              style={{
+                fontFamily: 'var(--f-display)',
+                fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+                fontWeight: 800,
+                color: 'var(--ink)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.04em',
+                marginBottom: '1.5rem',
+              }}
+            >
               ישירות
               <br />
-              <em className="italic text-gradient" style={{ lineHeight: 1.25 }}>
+              <em style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 300 }}>
                 מהמקור
               </em>
             </h2>

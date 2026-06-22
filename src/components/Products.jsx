@@ -106,7 +106,7 @@ function ProductRow({ product, index }) {
           <span
             style={{
               fontFamily: "'JetBrains Mono', 'Courier New', monospace",
-              fontSize: '0.72rem',
+              fontSize: '0.88rem',
               fontWeight: 700,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
@@ -122,7 +122,7 @@ function ProductRow({ product, index }) {
                 borderRadius: '999px',
                 background: 'var(--ink)',
                 color: 'var(--bg)',
-                fontSize: '0.72rem',
+                fontSize: '0.88rem',
                 letterSpacing: '0.06em',
                 fontWeight: 700,
               }}
@@ -133,7 +133,7 @@ function ProductRow({ product, index }) {
           <span
             style={{
               fontFamily: 'var(--f-body)',
-              fontSize: '0.9rem',
+              fontSize: '1.05rem',
               color: 'var(--mute-2)',
               fontWeight: 500,
             }}
@@ -159,7 +159,7 @@ function ProductRow({ product, index }) {
         <p
           style={{
             fontFamily: 'var(--f-body)',
-            fontSize: '0.97rem',
+            fontSize: '1.1rem',
             color: 'var(--mute)',
             lineHeight: 1.65,
             display: '-webkit-box',
@@ -261,7 +261,7 @@ function ProductRow({ product, index }) {
           border: '1.5px solid',
           borderColor: added ? 'var(--accent)' : hovered ? 'var(--ink)' : 'var(--line-2)',
           fontWeight: 700,
-          fontSize: '0.92rem',
+          fontSize: '1.05rem',
           letterSpacing: '0.05em',
           textTransform: 'uppercase',
           transition: 'all 0.25s ease',
@@ -367,7 +367,7 @@ export default function Products() {
           <span
             style={{
               fontFamily: "'JetBrains Mono', 'Courier New', monospace",
-              fontSize: '0.72rem',
+              fontSize: '0.88rem',
               fontWeight: 700,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
@@ -403,7 +403,7 @@ export default function Products() {
           style={{
             marginTop: '1.5rem',
             fontFamily: 'var(--f-body)',
-            fontSize: '0.97rem',
+            fontSize: '1.1rem',
             color: 'var(--mute-2)',
             textAlign: 'center',
             lineHeight: 1.7,

@@ -20,6 +20,16 @@ export default {
         serif:   ['Heebo', 'system-ui', 'sans-serif'],
       },
       fontSize: {
+        /* override Tailwind defaults — everything ~20% larger */
+        'xs':   ['0.9rem',  { lineHeight: '1.55' }],
+        'sm':   ['1rem',    { lineHeight: '1.6'  }],
+        'base': ['1.15rem', { lineHeight: '1.8'  }],
+        'lg':   ['1.3rem',  { lineHeight: '1.75' }],
+        'xl':   ['1.5rem',  { lineHeight: '1.4'  }],
+        '2xl':  ['1.75rem', { lineHeight: '1.3'  }],
+        '3xl':  ['2.1rem',  { lineHeight: '1.2'  }],
+        '4xl':  ['2.6rem',  { lineHeight: '1.1'  }],
+        /* brand custom */
         display: ['clamp(3.8rem,9vw,8rem)',   { lineHeight: '0.95', letterSpacing: '-0.04em' }],
         hero:    ['clamp(3rem,6.5vw,6rem)',    { lineHeight: '1.05', letterSpacing: '-0.03em' }],
         section: ['clamp(2.2rem,5vw,4rem)',    { lineHeight: '1.1',  letterSpacing: '-0.03em' }],

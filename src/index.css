@@ -42,8 +42,8 @@
     background-color: var(--bg);
     color: var(--ink);
     overflow-x: hidden;
-    line-height: 1.8;
-    font-size: 18px;
+    line-height: 1.85;
+    font-size: 20px;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -94,25 +94,25 @@
   /* Section label */
   .section-label {
     font-family: var(--f-body);
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--accent);
     display: block;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.9rem;
   }
 
   /* Section label — English/Latin only (e.g. "CEREMONIAL GRADE") */
   .section-label-en {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 0.75rem;
+    font-size: 0.83rem;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent);
     display: block;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.9rem;
   }
 
   /* Primary CTA — dark pill */
@@ -125,7 +125,7 @@
     background: var(--ink);
     color: var(--bg);
     font-weight: 700;
-    font-size: 0.92rem;
+    font-size: 1rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -151,7 +151,7 @@
     background: transparent;
     color: var(--ink);
     font-weight: 600;
-    font-size: 0.92rem;
+    font-size: 1rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
     transition: border-color 0.2s, transform 0.2s, color 0.2s;
@@ -211,6 +211,16 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(10,20,7,0.12);
   }
+}
+
+/* ─── Brewing guide grid ─────────────────────────────────────────────────────── */
+.brewing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 640px) {
+  .brewing-grid { grid-template-columns: 1fr; }
 }
 
 /* ─── Hero split-screen ──────────────────────────────────────────────────────── */

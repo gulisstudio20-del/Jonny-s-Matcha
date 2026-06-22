@@ -14,7 +14,7 @@ const itemV = {
 
 const stats = [
   { value: '#1',   label: 'בישראל' },
-  { value: '100%', label: 'אורגני' },
+  { value: '4.9★', label: 'דירוג ממוצע' },
   { value: '+5K',  label: 'לקוחות' },
 ]
 
@@ -66,10 +66,11 @@ export default function Hero() {
             {/* Grade label */}
             <motion.p
               variants={reduced ? {} : itemV}
-              className="section-label"
+              className="section-label-en"
               style={{ marginBottom: '2.5rem' }}
+              dir="ltr"
             >
-              — CEREMONIAL GRADE · UJI, JAPAN
+              CEREMONIAL GRADE · UJI, JAPAN
             </motion.p>
 
             {/* Brand name */}
@@ -115,10 +116,10 @@ export default function Hero() {
             <motion.p
               variants={reduced ? {} : itemV}
               style={{
-                fontSize: 'clamp(1rem, 1.4vw, 1.1rem)',
+                fontSize: 'clamp(1.1rem, 1.8vw, 1.25rem)',
                 color: 'var(--mute)',
                 lineHeight: 1.85,
-                maxWidth: '420px',
+                maxWidth: '440px',
                 marginBottom: '2.5rem',
               }}
             >
@@ -140,31 +141,35 @@ export default function Hero() {
             {/* Stats */}
             <motion.div
               variants={reduced ? {} : itemV}
-              style={{ display: 'flex', gap: 'clamp(1.5rem, 4vw, 3rem)' }}
+              style={{ display: 'flex', gap: 'clamp(2rem, 4.5vw, 3.5rem)', alignItems: 'flex-start' }}
               role="list"
               aria-label="נתוני אמון"
             >
               {stats.map((s) => (
-                <div key={s.label} role="listitem">
+                <div key={s.label} role="listitem" style={{ minWidth: '4rem' }}>
                   <strong
                     style={{
                       display: 'block',
-                      fontFamily: 'var(--f-display)',
-                      fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-                      fontWeight: 800,
+                      fontFamily: 'var(--f-body)',
+                      fontSize: 'clamp(1.8rem, 3.2vw, 2.4rem)',
+                      fontWeight: 900,
                       color: 'var(--ink)',
                       lineHeight: 1,
-                      letterSpacing: '-0.03em',
+                      letterSpacing: '-0.01em',
+                      direction: 'ltr',
                     }}
                   >
                     {s.value}
                   </strong>
                   <span
                     style={{
-                      fontSize: '0.68rem',
-                      color: 'var(--mute-2)',
-                      letterSpacing: '0.16em',
-                      textTransform: 'uppercase',
+                      fontFamily: 'var(--f-body)',
+                      fontSize: '1rem',
+                      color: 'var(--mute)',
+                      fontWeight: 600,
+                      display: 'block',
+                      marginTop: '0.35rem',
+                      lineHeight: 1.3,
                     }}
                   >
                     {s.label}
@@ -215,7 +220,7 @@ export default function Hero() {
                   backdropFilter: 'blur(12px)',
                 }}
               >
-                <span style={{ fontSize: '0.68rem', color: 'rgba(242,237,226,0.5)', letterSpacing: '0.1em' }}>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(242,237,226,0.5)', letterSpacing: '0.08em' }}>
                   מתחיל מ
                 </span>
                 <strong
@@ -238,12 +243,12 @@ export default function Hero() {
                   position: 'absolute',
                   top: '1.25rem',
                   left: '1.25rem',
-                  padding: '0.35rem 0.85rem',
+                  padding: '0.4rem 1rem',
                   borderRadius: '999px',
                   background: 'var(--bg)',
-                  fontSize: '0.65rem',
+                  fontSize: '0.78rem',
                   fontWeight: 700,
-                  letterSpacing: '0.18em',
+                  letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                   color: 'var(--accent)',
                 }}

@@ -43,10 +43,10 @@ export default function Header() {
           top: 0,
           insetInline: 0,
           zIndex: 50,
-          padding: scrolled ? '0.75rem 0' : '1rem 0',
-          background: scrolled ? 'rgba(242,237,226,0.92)' : 'transparent',
+          padding: scrolled ? '1.1rem 0' : '1.75rem 0',
+          background: scrolled ? 'rgba(242,237,226,0.94)' : 'transparent',
           borderBottom: scrolled ? '1px solid var(--line)' : '1px solid transparent',
-          backdropFilter: scrolled ? 'blur(18px)' : 'none',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
           transition: 'all 0.4s ease',
         }}
       >
@@ -61,15 +61,15 @@ export default function Header() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.45rem',
-              padding: '0.5rem 1.1rem',
+              gap: '0.5rem',
+              padding: '0.65rem 1.5rem',
               borderRadius: '999px',
-              border: '1px solid var(--line-2)',
+              border: '1.5px solid var(--line-2)',
               background: 'transparent',
               color: 'var(--ink)',
               fontWeight: 700,
-              fontSize: '0.8rem',
-              letterSpacing: '0.06em',
+              fontSize: '0.92rem',
+              letterSpacing: '0.04em',
               cursor: 'pointer',
               transition: 'all 0.2s',
               position: 'relative',
@@ -117,11 +117,11 @@ export default function Header() {
             className="hidden lg:flex"
             style={{
               alignItems: 'center',
-              gap: '0.15rem',
-              background: 'rgba(10,20,7,0.04)',
+              gap: '0.2rem',
+              background: 'rgba(10,20,7,0.05)',
               border: '1px solid var(--line)',
               borderRadius: '999px',
-              padding: '0.3rem 0.4rem',
+              padding: '0.4rem 0.5rem',
             }}
           >
             {navLinks.map((link) => (
@@ -131,10 +131,10 @@ export default function Header() {
                 onClick={(e) => smoothScroll(e, link.href)}
                 style={{
                   display: 'block',
-                  padding: '0.35rem 1rem',
+                  padding: '0.5rem 1.2rem',
                   borderRadius: '999px',
                   color: 'var(--mute)',
-                  fontSize: '0.84rem',
+                  fontSize: '0.97rem',
                   fontWeight: 500,
                   transition: 'color 0.2s, background 0.2s',
                   textDecoration: 'none',
@@ -162,7 +162,7 @@ export default function Header() {
               aria-label="jonny's matcha — חזרה לראש הדף"
               style={{
                 fontFamily: 'var(--f-display)',
-                fontSize: '1.05rem',
+                fontSize: '1.55rem',
                 letterSpacing: '-0.03em',
                 color: 'var(--ink)',
                 textDecoration: 'none',

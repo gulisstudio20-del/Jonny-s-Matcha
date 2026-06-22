@@ -133,10 +133,10 @@ function GiftCard({ gift, index }) {
           </button>
           <strong
             style={{
-              fontFamily: 'var(--f-display)',
+              fontFamily: 'var(--f-body)',
               fontSize: '1.5rem',
-              fontWeight: 800,
-              letterSpacing: '-0.03em',
+              fontWeight: 900,
+              letterSpacing: '-0.01em',
               color: isFeature ? 'var(--bg)' : 'var(--ink)',
             }}
           >
@@ -164,15 +164,15 @@ export default function GiftSets() {
           <span className="section-label">לכל אירוע</span>
           <h2
             style={{
-              fontFamily: 'var(--f-display)',
-              fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+              fontFamily: 'var(--f-body)',
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
               fontWeight: 800,
               color: 'var(--ink)',
               lineHeight: 1.05,
-              letterSpacing: '-0.04em',
+              letterSpacing: '-0.02em',
             }}
           >
-            מתנות לקט
+            סטי מתנה
           </h2>
         </div>
 

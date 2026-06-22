@@ -51,12 +51,12 @@ export default function Process() {
           <span className="section-label" style={{ color: 'rgba(90,155,42,0.8)', textAlign: 'center', display: 'block' }}>מהחווה לכוס</span>
           <h2
             style={{
-              fontFamily: 'var(--f-display)',
-              fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+              fontFamily: 'var(--f-body)',
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
               fontWeight: 800,
               color: 'var(--bg)',
               lineHeight: 1.1,
-              letterSpacing: '-0.04em',
+              letterSpacing: '-0.02em',
             }}
           >
             מהחווה{' '}
@@ -86,8 +86,8 @@ export default function Process() {
             {steps.map((step) => (
               <motion.li key={step.number} variants={fadeUp} className="group text-center">
                 <div
-                  className="relative inline-flex items-center justify-center w-14 h-14 mb-6 rounded-full
-                               font-serif text-lg font-bold z-10
+                  className="relative inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full
+                               font-serif text-xl font-bold z-10
                                group-hover:scale-110 transition-all duration-500"
                   style={{
                     border: '1px solid rgba(255,255,255,0.15)',
@@ -95,9 +95,9 @@ export default function Process() {
                     color: 'rgba(255,255,255,0.6)',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--c-matcha)'
+                    e.currentTarget.style.background = 'var(--accent)'
                     e.currentTarget.style.color = '#fff'
-                    e.currentTarget.style.borderColor = 'var(--c-matcha)'
+                    e.currentTarget.style.borderColor = 'var(--accent)'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
@@ -108,8 +108,8 @@ export default function Process() {
                 >
                   {step.number}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-base leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>{step.desc}</p>
+                <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
+                <p className="text-lg leading-[1.8]" style={{ color: 'rgba(255,255,255,0.5)' }}>{step.desc}</p>
               </motion.li>
             ))}
           </motion.ol>

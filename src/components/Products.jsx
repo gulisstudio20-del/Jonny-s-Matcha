@@ -10,6 +10,8 @@ export const PRODUCTS = [
     id:     'ceremonial',
     label:  'Ceremonial Grade',
     name:   'מאצ׳ה טקסי',
+    unit:   '30 גרם',
+    desc:   'הדרג הגבוה ביותר — לשתייה ישירה בקערה. צבע ירוק עז, טעם עשיר ועמוק.',
     price:  189,
     img:    heroBowl,
     imgAlt: 'מאצ׳ה סרמוניאלית',
@@ -19,6 +21,8 @@ export const PRODUCTS = [
     id:     'premium',
     label:  'Premium Grade',
     name:   'מאצ׳ה פרימיום',
+    unit:   '40 גרם',
+    desc:   'מצוין לשתייה ולאפייה. איזון מושלם בין איכות לערך.',
     price:  149,
     img:    powderImg,
     imgAlt: 'מאצ׳ה פרימיום',
@@ -28,6 +32,8 @@ export const PRODUCTS = [
     id:     'latte',
     label:  'Latte Blend',
     name:   'מאצ׳ה לאטה',
+    unit:   '50 גרם',
+    desc:   'מיזוג מיוחד לחלב וחלב צמחי. קריים, מתוק בטבעיות, מושלם לכל יום.',
     price:  129,
     img:    toolsImg,
     imgAlt: 'מאצ׳ה לאטה',
@@ -40,6 +46,13 @@ const ease = [0.16, 1, 0.3, 1]
 function ProductRow({ product, index }) {
   const { addItem } = useCart()
   const [hovered, setHovered] = useState(false)
+  const [added,   setAdded]   = useState(false)
+
+  const handleAdd = () => {
+    addItem(product)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1800)
+  }
 
   return (
     <motion.article
@@ -55,10 +68,10 @@ function ProductRow({ product, index }) {
       {/* Thumbnail */}
       <div
         style={{
-          width: '70px',
-          height: '70px',
+          width: '90px',
+          height: '90px',
           flexShrink: 0,
-          borderRadius: '0.75rem',
+          borderRadius: '0.85rem',
           overflow: 'hidden',
           background: 'var(--bg-2)',
           transition: 'transform 0.4s ease',
@@ -75,62 +88,96 @@ function ProductRow({ product, index }) {
 
       {/* Info */}
       <div style={{ flex: 1, minWidth: 0 }}>
-        <p
+        {/* Grade label + badge + unit */}
+        <div
           style={{
-            fontFamily: "'JetBrains Mono', 'Courier New', monospace",
-            fontSize: '0.58rem',
-            fontWeight: 700,
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: 'var(--accent)',
-            marginBottom: '0.25rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
             flexWrap: 'wrap',
+            marginBottom: '0.3rem',
           }}
         >
-          {product.label}
+          <span
+            style={{
+              fontFamily: "'JetBrains Mono', 'Courier New', monospace",
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'var(--accent)',
+            }}
+          >
+            {product.label}
+          </span>
           {product.badge && (
             <span
               style={{
-                padding: '1px 7px',
+                padding: '3px 9px',
                 borderRadius: '999px',
                 background: 'var(--ink)',
                 color: 'var(--bg)',
-                fontSize: '0.55rem',
-                letterSpacing: '0.1em',
+                fontSize: '0.72rem',
+                letterSpacing: '0.06em',
+                fontWeight: 700,
               }}
             >
               {product.badge}
             </span>
           )}
-        </p>
+          <span
+            style={{
+              fontFamily: 'var(--f-body)',
+              fontSize: '0.9rem',
+              color: 'var(--mute-2)',
+              fontWeight: 500,
+            }}
+          >
+            {product.unit}
+          </span>
+        </div>
+
+        {/* Name */}
         <h3
           style={{
-            fontSize: 'clamp(1.05rem, 2.5vw, 1.45rem)',
+            fontSize: 'clamp(1.2rem, 2.8vw, 1.5rem)',
             fontWeight: 700,
             color: 'var(--ink)',
             lineHeight: 1.2,
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
+            marginBottom: '0.35rem',
           }}
         >
           {product.name}
         </h3>
+
+        {/* Description */}
+        <p
+          style={{
+            fontFamily: 'var(--f-body)',
+            fontSize: '0.97rem',
+            color: 'var(--mute)',
+            lineHeight: 1.65,
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
+          {product.desc}
+        </p>
       </div>
 
       {/* Price */}
       <strong
         style={{
-          fontFamily: 'var(--f-display)',
-          fontSize: 'clamp(1.35rem, 2.8vw, 1.85rem)',
-          fontWeight: 800,
+          fontFamily: 'var(--f-body)',
+          fontSize: 'clamp(1.3rem, 2.5vw, 1.65rem)',
+          fontWeight: 900,
           color: 'var(--ink)',
-          letterSpacing: '-0.03em',
+          letterSpacing: '-0.01em',
           fontVariantNumeric: 'tabular-nums',
           flexShrink: 0,
+          whiteSpace: 'nowrap',
         }}
       >
         ₪{product.price}
@@ -138,31 +185,30 @@ function ProductRow({ product, index }) {
 
       {/* Add to cart */}
       <button
-        onClick={() => addItem(product)}
+        onClick={handleAdd}
         aria-label={`הוסף ${product.name} לעגלה`}
         style={{
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.35rem',
-          padding: '0.6rem 1.25rem',
+          padding: '0.65rem 1.35rem',
           borderRadius: '999px',
-          background: hovered ? 'var(--ink)' : 'transparent',
-          color: hovered ? 'var(--bg)' : 'var(--ink)',
-          border: '1px solid',
-          borderColor: hovered ? 'var(--ink)' : 'var(--line-2)',
+          background: added ? 'var(--accent)' : hovered ? 'var(--ink)' : 'transparent',
+          color: added || hovered ? 'var(--bg)' : 'var(--ink)',
+          border: '1.5px solid',
+          borderColor: added ? 'var(--accent)' : hovered ? 'var(--ink)' : 'var(--line-2)',
           fontWeight: 700,
-          fontSize: '0.78rem',
-          letterSpacing: '0.06em',
+          fontSize: '0.92rem',
+          letterSpacing: '0.05em',
           textTransform: 'uppercase',
           transition: 'all 0.25s ease',
-          minWidth: '7rem',
+          minWidth: '8rem',
           justifyContent: 'center',
           cursor: 'pointer',
           flexShrink: 0,
         }}
       >
-        הוסף
-        <span aria-hidden="true" style={{ fontSize: '1.1rem', lineHeight: 1, fontWeight: 300 }}>+</span>
+        {added ? '✓ נוסף' : 'הוסף לעגלה'}
       </button>
     </motion.article>
   )
@@ -188,15 +234,43 @@ export default function Products() {
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '1rem',
-            paddingBottom: '2rem',
-            marginBottom: '0.5rem',
+            paddingBottom: '1.5rem',
+            marginBottom: '0.25rem',
             borderBottom: '2px solid var(--ink)',
           }}
         >
+          <div style={{ textAlign: 'right' }}>
+            <span className="section-label">ישירות מהחוה</span>
+            <h2
+              style={{
+                fontFamily: 'var(--f-body)',
+                fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+                fontWeight: 800,
+                color: 'var(--ink)',
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              הקולקציה שלנו
+            </h2>
+            <p
+              style={{
+                fontFamily: 'var(--f-body)',
+                fontSize: '1rem',
+                color: 'var(--mute)',
+                marginTop: '0.5rem',
+                maxWidth: '36rem',
+                lineHeight: 1.65,
+              }}
+            >
+              כל המוצרים שלנו מגיעים ישירות מגדלנים משפחתיים באוג׳י, קיוטו — ללא ספקי ביניים, ללא פשרות על איכות.
+            </p>
+          </div>
+
           <a
             href="#"
             style={{
-              fontSize: '0.8rem',
+              fontSize: '1rem',
               fontWeight: 600,
               color: 'var(--mute)',
               display: 'inline-flex',
@@ -204,29 +278,52 @@ export default function Products() {
               gap: '0.4rem',
               transition: 'color 0.2s',
               textDecoration: 'none',
+              flexShrink: 0,
             }}
             onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
             onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
           >
             <span aria-hidden="true">←</span>
-            לכל המוצרים
+            כל המוצרים
           </a>
+        </div>
 
-          <div style={{ textAlign: 'right' }}>
-            <span className="section-label">ישירות מהחוה</span>
-            <h2
-              style={{
-                fontFamily: 'var(--f-display)',
-                fontSize: 'clamp(2rem, 5vw, 3.8rem)',
-                fontWeight: 800,
-                color: 'var(--ink)',
-                lineHeight: 1.05,
-                letterSpacing: '-0.04em',
-              }}
-            >
-              הקולקציה שלנו
-            </h2>
-          </div>
+        {/* Grade guide */}
+        <div
+          style={{
+            display: 'flex',
+            gap: '1rem',
+            padding: '1rem 1.25rem',
+            background: 'rgba(61,110,28,0.06)',
+            borderRadius: '0.85rem',
+            marginBottom: '0.75rem',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'JetBrains Mono', 'Courier New', monospace",
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'var(--accent)',
+            }}
+          >
+            מדריך דרגות
+          </span>
+          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
+            <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Ceremonial</strong> — לשתייה טהורה בקערה
+          </span>
+          <span style={{ color: 'var(--line-2)' }}>·</span>
+          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
+            <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Premium</strong> — שתייה + אפייה
+          </span>
+          <span style={{ color: 'var(--line-2)' }}>·</span>
+          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
+            <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Latte Blend</strong> — עם חלב, כל יום
+          </span>
         </div>
 
         {/* Product list */}
@@ -237,6 +334,20 @@ export default function Products() {
             </div>
           ))}
         </div>
+
+        {/* Bottom note */}
+        <p
+          style={{
+            marginTop: '1.5rem',
+            fontFamily: 'var(--f-body)',
+            fontSize: '0.97rem',
+            color: 'var(--mute-2)',
+            textAlign: 'center',
+            lineHeight: 1.7,
+          }}
+        >
+          ✓ משלוח חינם בהזמנה ראשונה &nbsp;·&nbsp; ✓ 100% אורגני מוסמך &nbsp;·&nbsp; ✓ אחריות שביעות רצון מלאה
+        </p>
 
       </div>
     </section>

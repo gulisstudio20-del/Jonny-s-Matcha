@@ -38,7 +38,7 @@ export default function About() {
           >
             <div
               className="absolute -inset-4 rounded-4xl"
-              style={{ background: 'var(--c-matcha-pale)', opacity: 0.5 }}
+              style={{ background: 'var(--c-matcha-pale)', opacity: 0.45 }}
               aria-hidden="true"
             />
             <img
@@ -53,14 +53,14 @@ export default function About() {
               style={{ borderColor: 'rgba(24,18,10,0.06)' }}
               aria-hidden="true"
             >
-              <p className="text-xs font-medium mb-0.5 uppercase tracking-wider" style={{ color: 'var(--c-ink-soft)' }}>Direct Trade</p>
-              <p className="font-black text-xl" style={{ color: 'var(--c-ink)' }}>
-                Uji, <span className="text-base" style={{ color: 'var(--c-matcha)' }}>Kyoto</span>
+              <p className="text-sm font-medium mb-0.5 uppercase tracking-wider" style={{ color: 'var(--mute)' }}>Direct Trade</p>
+              <p className="font-black text-2xl" style={{ color: 'var(--ink)' }}>
+                Uji, <span className="text-lg" style={{ color: 'var(--accent)' }}>Kyoto</span>
               </p>
             </div>
             <div
               className="absolute top-6 -right-4 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg"
-              style={{ background: 'var(--c-matcha)' }}
+              style={{ background: 'var(--accent)' }}
               aria-hidden="true"
             >
               🍃 Uji, Kyoto
@@ -78,12 +78,12 @@ export default function About() {
 
             <h2
               style={{
-                fontFamily: 'var(--f-display)',
-                fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+                fontFamily: 'var(--f-body)',
+                fontSize: 'clamp(2rem, 5vw, 3.4rem)',
                 fontWeight: 800,
                 color: 'var(--ink)',
                 lineHeight: 1.1,
-                letterSpacing: '-0.04em',
+                letterSpacing: '-0.02em',
                 marginBottom: '1.5rem',
               }}
             >
@@ -94,10 +94,10 @@ export default function About() {
               </em>
             </h2>
 
-            <p className="text-lg leading-[1.85] mb-4" style={{ color: 'var(--c-ink-soft)' }}>
+            <p className="text-lg leading-[1.85] mb-4" style={{ color: 'var(--mute)' }}>
               כוס אחת בטוקיו שינתה את הכל. הטעם, הצבע, המרקם — לא מצאנו שום דבר קרוב לזה בישראל.
             </p>
-            <p className="text-lg leading-[1.85] mb-10" style={{ color: 'var(--c-ink-soft)' }}>
+            <p className="text-lg leading-[1.85] mb-10" style={{ color: 'var(--mute)' }}>
               יצרנו קשר ישיר עם גדלנים משפחתיים באוג׳י, קיוטו. ללא ספקי ביניים, ללא פשרות על איכות — מה שמגיע אליכם הוא מה שגדל שם.
             </p>
 
@@ -105,9 +105,9 @@ export default function About() {
               {pills.map((pill) => (
                 <li
                   key={pill.label}
-                  className="px-4 py-2 bg-white rounded-full text-sm font-semibold shadow-sm
+                  className="px-5 py-2.5 bg-white rounded-full text-base font-semibold shadow-sm
                              transition-all duration-200 hover:shadow-md"
-                  style={{ border: '1px solid rgba(24,18,10,0.08)', color: 'var(--c-ink)' }}
+                  style={{ border: '1px solid rgba(24,18,10,0.08)', color: 'var(--ink)' }}
                 >
                   {pill.label}
                 </li>

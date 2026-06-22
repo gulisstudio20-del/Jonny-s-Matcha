@@ -5,15 +5,21 @@ const ease = [0.16, 1, 0.3, 1]
 const testimonials = [
   {
     id: 1,
-    text: 'קניתי בגלל הדיזיין, חזרתי בגלל הטעם. לא מפסיקה להמליץ.',
+    text: 'קניתי בגלל הדיזיין, חזרתי בגלל הטעם. לא מפסיקה להמליץ לכולם.',
+    author: 'שירה מ.',
+    location: 'תל אביב',
   },
   {
     id: 2,
-    text: 'הסט המלא שינה את הבוקר שלי לגמרי. האיכות ניכרת מיד.',
+    text: 'הסט המלא שינה את הבוקר שלי לגמרי. האיכות ניכרת מהרגע הראשון.',
+    author: 'רועי ל.',
+    location: 'חיפה',
   },
   {
     id: 3,
     text: 'המאצ׳ה הטובה ביותר שטעמתי מחוץ ליפן. פשוט אין כמוה.',
+    author: 'נועה ג.',
+    location: 'ירושלים',
   },
 ]
 
@@ -43,30 +49,32 @@ export default function Testimonials() {
           }}
         >
           {/* Rating */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <strong
               style={{
-                fontFamily: 'var(--f-display)',
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                fontWeight: 800,
+                fontFamily: 'var(--f-body)',
+                fontSize: 'clamp(2.8rem, 5vw, 4.2rem)',
+                fontWeight: 900,
                 color: 'var(--ink)',
-                letterSpacing: '-0.04em',
+                letterSpacing: '-0.02em',
                 lineHeight: 1,
+                direction: 'ltr',
               }}
             >
               4.9
             </strong>
             <div>
-              <div style={{ display: 'flex', gap: '2px', marginBottom: '0.2rem' }} aria-hidden="true">
+              <div style={{ display: 'flex', gap: '3px', marginBottom: '0.3rem' }} aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} style={{ color: 'var(--accent)', fontSize: '0.85rem' }}>★</span>
+                  <span key={i} style={{ color: 'var(--accent)', fontSize: '1.1rem' }}>★</span>
                 ))}
               </div>
               <span
                 style={{
-                  fontSize: '0.75rem',
+                  fontFamily: 'var(--f-body)',
+                  fontSize: '0.97rem',
                   color: 'var(--mute)',
-                  letterSpacing: '0.1em',
+                  fontWeight: 500,
                 }}
               >
                 מ-800+ ביקורות
@@ -79,12 +87,12 @@ export default function Testimonials() {
             <span className="section-label">חוויות אמיתיות</span>
             <h2
               style={{
-                fontFamily: 'var(--f-display)',
-                fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+                fontFamily: 'var(--f-body)',
+                fontSize: 'clamp(2rem, 5vw, 3.4rem)',
                 fontWeight: 800,
                 color: 'var(--ink)',
-                lineHeight: 1.05,
-                letterSpacing: '-0.04em',
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
               }}
             >
               הלקוחות סיפרו
@@ -107,10 +115,11 @@ export default function Testimonials() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.65, delay: i * 0.1, ease }}
               style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '2rem',
-                padding: '2rem 0',
+                display: 'grid',
+                gridTemplateColumns: 'auto 1fr auto',
+                alignItems: 'start',
+                gap: 'clamp(1rem, 3vw, 2rem)',
+                padding: '2.25rem 0',
                 borderBottom: i < testimonials.length - 1 ? '1px solid var(--line)' : 'none',
               }}
             >
@@ -118,13 +127,12 @@ export default function Testimonials() {
               <span
                 aria-hidden="true"
                 style={{
-                  fontFamily: 'var(--f-display)',
-                  fontSize: '0.7rem',
+                  fontFamily: 'var(--f-body)',
+                  fontSize: '0.88rem',
                   fontWeight: 700,
                   color: 'var(--mute-2)',
-                  letterSpacing: '0.1em',
-                  flexShrink: 0,
-                  paddingTop: '0.2rem',
+                  letterSpacing: '0.08em',
+                  paddingTop: '0.3rem',
                   minWidth: '1.5rem',
                 }}
               >
@@ -132,26 +140,38 @@ export default function Testimonials() {
               </span>
 
               {/* Stars + text */}
-              <div style={{ flex: 1 }}>
+              <div>
                 <div
-                  style={{ display: 'flex', gap: '2px', marginBottom: '0.75rem' }}
+                  style={{ display: 'flex', gap: '2px', marginBottom: '0.85rem' }}
                   role="img"
                   aria-label="5 כוכבים"
                 >
                   {Array.from({ length: 5 }).map((_, j) => (
-                    <span key={j} aria-hidden="true" style={{ color: 'var(--accent)', fontSize: '0.8rem' }}>★</span>
+                    <span key={j} aria-hidden="true" style={{ color: 'var(--accent)', fontSize: '1rem' }}>★</span>
                   ))}
                 </div>
                 <p
                   style={{
-                    fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                    lineHeight: 1.7,
+                    fontFamily: 'var(--f-body)',
+                    fontSize: 'clamp(1.15rem, 2.2vw, 1.35rem)',
+                    lineHeight: 1.75,
                     color: 'var(--ink)',
-                    maxWidth: '54rem',
+                    fontWeight: 400,
+                    marginBottom: '1rem',
                   }}
                 >
                   ״{t.text}״
                 </p>
+              </div>
+
+              {/* Author */}
+              <div style={{ textAlign: 'left', paddingTop: '0.3rem', flexShrink: 0 }}>
+                <strong style={{ display: 'block', fontFamily: 'var(--f-body)', fontSize: '1rem', fontWeight: 700, color: 'var(--ink)' }}>
+                  {t.author}
+                </strong>
+                <span style={{ fontFamily: 'var(--f-body)', fontSize: '0.92rem', color: 'var(--mute-2)', fontWeight: 400 }}>
+                  {t.location}
+                </span>
               </div>
             </motion.div>
           ))}

@@ -68,23 +68,23 @@ export default function CTASection() {
 
           <h2
             style={{
-              fontFamily: 'var(--f-display)',
-              fontSize: 'clamp(2.2rem, 5vw, 4rem)',
+              fontFamily: 'var(--f-body)',
+              fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
               fontWeight: 800,
               color: 'var(--bg)',
               lineHeight: 1.05,
-              letterSpacing: '-0.04em',
+              letterSpacing: '-0.02em',
               marginBottom: '1.25rem',
             }}
           >
-            נשארים בקשר
+            הצטרפו למשפחה
           </h2>
 
           <p
             style={{
-              fontSize: '1rem',
-              lineHeight: 1.8,
-              color: 'rgba(242,237,226,0.5)',
+              fontSize: '1.1rem',
+              lineHeight: 1.85,
+              color: 'rgba(242,237,226,0.55)',
               marginBottom: '2.5rem',
               maxWidth: '32rem',
             }}
@@ -123,7 +123,7 @@ export default function CTASection() {
                 <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--bg)', marginBottom: '0.4rem' }}>
                   ברוכים הבאים למשפחה!
                 </p>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(242,237,226,0.4)' }}>
+                <p style={{ fontSize: '1rem', color: 'rgba(242,237,226,0.45)' }}>
                   נשמח לעדכן אתכם בקרוב.
                 </p>
               </motion.div>
@@ -161,7 +161,7 @@ export default function CTASection() {
                         border: `1px solid ${error ? 'rgba(255,100,100,0.5)' : 'rgba(242,237,226,0.15)'}`,
                         background: 'rgba(242,237,226,0.07)',
                         color: 'var(--bg)',
-                        fontSize: '0.9rem',
+                        fontSize: '1rem',
                         fontFamily: 'var(--f-body)',
                         outline: 'none',
                         transition: 'border-color 0.2s',
@@ -172,7 +172,7 @@ export default function CTASection() {
                       aria-describedby={error ? 'email-error' : undefined}
                     />
                     {error && (
-                      <p id="email-error" role="alert" style={{ color: '#fca5a5', fontSize: '0.8rem', marginTop: '0.5rem', paddingInlineStart: '0.5rem' }}>
+                      <p id="email-error" role="alert" style={{ color: '#fca5a5', fontSize: '0.9rem', marginTop: '0.5rem', paddingInlineStart: '0.5rem' }}>
                         {error}
                       </p>
                     )}
@@ -188,7 +188,7 @@ export default function CTASection() {
                       background: 'var(--bg)',
                       color: 'var(--ink)',
                       fontWeight: 700,
-                      fontSize: '0.82rem',
+                      fontSize: '0.92rem',
                       letterSpacing: '0.06em',
                       textTransform: 'uppercase',
                       border: 'none',

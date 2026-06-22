@@ -6,15 +6,15 @@ export function CartProvider({ children }) {
   const [items, setItems] = useState([])
   const [isOpen, setIsOpen] = useState(false)
 
-  const addItem = (product) => {
+  const addItem = (product, qty = 1) => {
     setItems((prev) => {
       const existing = prev.find((i) => i.id === product.id)
       if (existing) {
         return prev.map((i) =>
-          i.id === product.id ? { ...i, qty: i.qty + 1 } : i
+          i.id === product.id ? { ...i, qty: i.qty + qty } : i
         )
       }
-      return [...prev, { ...product, qty: 1 }]
+      return [...prev, { ...product, qty }]
     })
     setIsOpen(true)
   }

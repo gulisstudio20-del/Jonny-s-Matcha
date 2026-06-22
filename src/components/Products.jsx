@@ -47,12 +47,17 @@ function ProductRow({ product, index }) {
   const { addItem } = useCart()
   const [hovered, setHovered] = useState(false)
   const [added,   setAdded]   = useState(false)
+  const [qty,     setQty]     = useState(1)
 
   const handleAdd = () => {
-    addItem(product)
+    addItem(product, qty)
     setAdded(true)
+    setQty(1)
     setTimeout(() => setAdded(false), 1800)
   }
+
+  const decQty = (e) => { e.stopPropagation(); setQty(q => Math.max(1, q - 1)) }
+  const incQty = (e) => { e.stopPropagation(); setQty(q => Math.min(9, q + 1)) }
 
   return (
     <motion.article
@@ -183,6 +188,64 @@ function ProductRow({ product, index }) {
         ₪{product.price}
       </strong>
 
+      {/* Quantity selector */}
+      {!added && (
+        <div
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            border: '1.5px solid var(--line-2)',
+            borderRadius: '999px',
+            overflow: 'hidden',
+            flexShrink: 0,
+          }}
+          aria-label="כמות"
+        >
+          <button
+            onClick={decQty}
+            aria-label="הפחת כמות"
+            style={{
+              padding: '0.6rem 0.85rem',
+              background: 'transparent',
+              border: 'none',
+              cursor: qty === 1 ? 'not-allowed' : 'pointer',
+              fontSize: '1.1rem',
+              color: qty === 1 ? 'var(--mute-2)' : 'var(--ink)',
+              lineHeight: 1,
+              transition: 'color 0.15s',
+            }}
+          >−</button>
+          <span
+            style={{
+              minWidth: '1.75rem',
+              textAlign: 'center',
+              fontWeight: 700,
+              fontSize: '1rem',
+              color: 'var(--ink)',
+              userSelect: 'none',
+            }}
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {qty}
+          </span>
+          <button
+            onClick={incQty}
+            aria-label="הוסף כמות"
+            style={{
+              padding: '0.6rem 0.85rem',
+              background: 'transparent',
+              border: 'none',
+              cursor: qty === 9 ? 'not-allowed' : 'pointer',
+              fontSize: '1.1rem',
+              color: qty === 9 ? 'var(--mute-2)' : 'var(--ink)',
+              lineHeight: 1,
+              transition: 'color 0.15s',
+            }}
+          >+</button>
+        </div>
+      )}
+
       {/* Add to cart */}
       <button
         onClick={handleAdd}
@@ -208,7 +271,7 @@ function ProductRow({ product, index }) {
           flexShrink: 0,
         }}
       >
-        {added ? '✓ נוסף' : 'הוסף לעגלה'}
+        {added ? `✓ נוסף${qty > 1 ? ` (${qty})` : ''}` : 'הוסף לעגלה'}
       </button>
     </motion.article>
   )

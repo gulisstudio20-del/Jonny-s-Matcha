@@ -203,13 +203,16 @@ export default function Hero() {
           fetchPriority="high"
         />
 
-        {/* Bottom gradient */}
+        {/* Top + bottom gradients for readability */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to top, rgba(9,15,7,0.75) 0%, transparent 55%)',
+            background: `
+              linear-gradient(to bottom, rgba(9,15,7,0.55) 0%, transparent 22%),
+              linear-gradient(to top,   rgba(9,15,7,0.75) 0%, transparent 55%)
+            `,
             zIndex: 3,
           }}
         />

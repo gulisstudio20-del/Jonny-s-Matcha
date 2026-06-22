@@ -164,12 +164,13 @@ export default function Header() {
                 fontFamily: 'var(--f-display)',
                 fontSize: '1.55rem',
                 letterSpacing: '-0.03em',
-                color: 'var(--ink)',
+                color: scrolled ? 'var(--ink)' : 'var(--bg)',
                 textDecoration: 'none',
+                transition: 'color 0.4s ease',
               }}
             >
               <span style={{ fontWeight: 800 }}>jonny's</span>{' '}
-              <span style={{ fontWeight: 300, color: 'var(--accent)' }}>matcha</span>
+              <span style={{ fontWeight: 300, color: scrolled ? 'var(--accent)' : 'rgba(90,155,42,0.9)' }}>matcha</span>
             </a>
 
             {/* Mobile burger */}
@@ -196,7 +197,7 @@ export default function Header() {
                     display: 'block',
                     width: '22px',
                     height: '1.5px',
-                    background: 'var(--ink)',
+                    background: scrolled ? 'var(--ink)' : 'var(--bg)',
                     borderRadius: '2px',
                     transition: 'all 0.3s ease',
                     transformOrigin: 'center',

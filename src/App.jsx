@@ -2,7 +2,6 @@ import { CartProvider } from './context/CartContext'
 import ScrollProgress from './components/ScrollProgress'
 import Header from './components/Header'
 import CartSidebar from './components/CartSidebar'
-import StickyBar from './components/StickyBar'
 import Hero from './components/Hero'
 import MarqueeBar from './components/MarqueeBar'
 import About from './components/About'
@@ -22,7 +21,6 @@ export default function App() {
       <div className="grain-overlay" aria-hidden="true" />
       <Header />
       <CartSidebar />
-      <StickyBar />
       <main id="main-content">
         <Hero />
         <MarqueeBar />

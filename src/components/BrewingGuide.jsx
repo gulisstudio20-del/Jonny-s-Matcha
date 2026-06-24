@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { fadeUp, stagger, viewport } from '../animations'
+import Tip from './Tip'
 
 const steps = [
   {
@@ -110,16 +111,7 @@ export default function BrewingGuide() {
         }} />
       </div>
 
-      {/* Watermark 茶 */}
-      <div aria-hidden="true" style={{
-        position: 'absolute', bottom: '-4rem', left: '-2rem',
-        fontFamily: 'serif', fontWeight: 900,
-        fontSize: 'clamp(14rem, 22vw, 28rem)',
-        lineHeight: 1, color: 'rgba(10,20,7,0.04)',
-        userSelect: 'none', pointerEvents: 'none', zIndex: 0,
-      }}>茶</div>
-
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+<div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Header */}
         <motion.div
@@ -129,7 +121,6 @@ export default function BrewingGuide() {
           viewport={viewport}
           style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)', maxWidth: '38rem' }}
         >
-          <span className="section-label">מדריך הכנה</span>
           <h2 style={{
             fontFamily: 'var(--f-body)',
             fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
@@ -265,46 +256,11 @@ export default function BrewingGuide() {
         </motion.div>
 
         {/* Expert tip */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          style={{
-            display: 'flex', gap: '1.25rem', alignItems: 'flex-start',
-            padding: 'clamp(1.25rem, 3vw, 2rem)',
-            background: 'rgba(255,255,255,0.22)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.55)',
-            borderRight: '3px solid var(--accent)',
-            borderRadius: '1.25rem',
-            marginBottom: '2.5rem',
-            boxShadow: '0 4px 20px rgba(10,20,7,0.06)',
-          }}
-          role="note"
-          aria-label="טיפ של מומחים"
-        >
-          <div style={{
-            width: '38px', height: '38px', borderRadius: '50%',
-            background: 'var(--accent)', color: '#fff',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '1rem', flexShrink: 0, marginTop: '0.1rem',
-            boxShadow: '0 4px 12px rgba(61,110,28,0.3)',
-          }} aria-hidden="true">✦</div>
-          <div>
-            <p style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.18em',
-              textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.55rem',
-            }}>
-              טיפ של מומחים
-            </p>
-            <p style={{ fontSize: '1.05rem', color: 'var(--ink)', lineHeight: 1.8 }}>
-              אל תשתמשו במים רותחים. 100°C הורסים את האמינו חומצות שאחראיות לטעם המתוק והאוממי. מומלץ להמתין 3-4 דקות לאחר הרתיחה — או לערבב כף מים קרים לפני ההוספה.
-            </p>
-          </div>
-        </motion.div>
+        <div style={{ marginBottom: '2.5rem' }}>
+          <Tip label="טיפ של יוני">
+            אל תשתמשו במים רותחים. 100°C הורסים את האמינו חומצות שאחראיות לטעם המתוק והאוממי. מומלץ להמתין 3–4 דקות לאחר הרתיחה — או לערבב כף מים קרים לפני ההוספה.
+          </Tip>
+        </div>
 
         {/* CTA */}
         <motion.div

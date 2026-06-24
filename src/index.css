@@ -17,7 +17,7 @@
   --mute-2:    #9C9488;
   --line:      rgba(10,20,7,0.09);
   --line-2:    rgba(10,20,7,0.16);
-  --f-display: 'Syne', system-ui, sans-serif;
+  --f-display: 'Barlow Condensed', system-ui, sans-serif;
   --f-body:    'Heebo', system-ui, sans-serif;
 
   /* Legacy aliases — keep for backward compat with older components */
@@ -164,31 +164,6 @@
     transform: translateY(-2px);
   }
 
-  /* Gradient pill (for dark sections — checkout CTA) */
-  .btn-gradient {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.95rem 2.2rem;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.92rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-  }
-  .btn-gradient:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(61,110,28,0.35);
-  }
-  .btn-gradient:active { transform: scale(0.97); }
-
   /* White pill (for dark sections) */
   .btn-white {
     display: inline-flex;
@@ -310,6 +285,72 @@
     width: 100%;
     min-width: unset;
     margin-top: 0.25rem;
+  }
+}
+
+/* ─── Tip card ───────────────────────────────────────────────────────────────── */
+/*
+  Deliberately inverted: dark ink bg on every light/glass section.
+  No side-stripe borders. Full enclosure only.
+*/
+.tip-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 12px 40px rgba(10, 20, 7, 0.22);
+}
+
+.tip-card__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 90% 0%, rgba(90, 155, 42, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 100%, rgba(61, 110, 28, 0.1) 0%, transparent 55%);
+}
+
+.tip-card__label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--f-display);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 0.9rem;
+  direction: rtl;
+}
+
+.tip-card__icon {
+  font-size: 1.1em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.tip-card__body {
+  position: relative;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  line-height: 1.9;
+  color: oklch(from var(--bg) l c h / 0.88);
+  /* Fallback for browsers without oklch relative color */
+  color: rgba(242, 237, 226, 0.88);
+  max-width: 68ch;
+}
+
+/* Responsive: slightly tighter on mobile */
+@media (max-width: 480px) {
+  .tip-card {
+    border-radius: 1.25rem;
+  }
+  .tip-card__body {
+    font-size: 1.1rem;
+    line-height: 1.85;
   }
 }
 

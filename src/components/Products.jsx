@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import heroBowl from '../../assets/images/hero-bowl.png'
-import powderImg from '../../assets/images/powder.png'
-import toolsImg  from '../../assets/images/tools.png'
+import heroBowl  from '../../assets/images/hero-bowl.png'
+import powderImg  from '../../assets/images/powder.png'
+import matchaCup  from '../../assets/images/matcha-cup.jpg'
 import { useCart } from '../context/CartContext'
 
 export const PRODUCTS = [
@@ -35,8 +35,8 @@ export const PRODUCTS = [
     unit:   '50 גרם',
     desc:   'מיזוג מיוחד לחלב וחלב צמחי. קריים, מתוק בטבעיות, מושלם לכל יום.',
     price:  129,
-    img:    toolsImg,
-    imgAlt: 'מאצ׳ה לאטה',
+    img:    matchaCup,
+    imgAlt: 'מאצ׳ה לאטה קרה',
     badge:  null,
   },
 ]

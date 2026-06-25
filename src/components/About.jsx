@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import powderImg from '../../assets/images/powder.png'
+import lifestyleImg from '../../assets/images/matcha-lifestyle.jpg'
 import { fadeRight, fadeLeft, viewport } from '../animations'
 
 const pills = [
@@ -17,14 +17,6 @@ export default function About() {
       style={{ background: 'var(--bg)' }}
       aria-label="הסיפור שלנו"
     >
-      <div
-        className="absolute -top-10 -right-8 font-black text-[16rem] leading-none select-none pointer-events-none"
-        style={{ color: 'rgba(24,18,10,0.025)' }}
-        aria-hidden="true"
-      >
-        01
-      </div>
-
       <div className="container relative">
         <div className="grid lg:grid-cols-2 gap-16 xl:gap-28 items-center">
 
@@ -42,8 +34,8 @@ export default function About() {
               aria-hidden="true"
             />
             <img
-              src={powderImg}
-              alt="אבקת מאצ׳ה ירוקה עזה"
+              src={lifestyleImg}
+              alt="שתי כוסות מאצ׳ה לאטה קרה מחוץ לבית קפה"
               className="relative rounded-3xl w-full object-cover shadow-card"
               width="560" height="500"
               loading="lazy"
@@ -58,13 +50,6 @@ export default function About() {
                 Uji, <span className="text-lg" style={{ color: 'var(--accent)' }}>Kyoto</span>
               </p>
             </div>
-            <div
-              className="absolute top-6 -right-4 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg"
-              style={{ background: 'var(--accent)' }}
-              aria-hidden="true"
-            >
-              🍃 Uji, Kyoto
-            </div>
           </motion.div>
 
           {/* Content */}
@@ -74,8 +59,6 @@ export default function About() {
             whileInView="visible"
             viewport={viewport}
           >
-            <span className="section-label">הסיפור שלנו</span>
-
             <h2
               style={{
                 fontFamily: 'var(--f-body)',

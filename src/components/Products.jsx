@@ -303,7 +303,6 @@ export default function Products() {
           }}
         >
           <div style={{ textAlign: 'right' }}>
-            <span className="section-label">ישירות מהחוה</span>
             <h2
               style={{
                 fontFamily: 'var(--f-body)',
@@ -409,7 +408,7 @@ export default function Products() {
             lineHeight: 1.7,
           }}
         >
-          ✓ משלוח חינם בהזמנה ראשונה &nbsp;·&nbsp; ✓ 100% אורגני מוסמך &nbsp;·&nbsp; ✓ אחריות שביעות רצון מלאה
+          משלוח חינם בהזמנה ראשונה &nbsp;·&nbsp; 100% אורגני מוסמך &nbsp;·&nbsp; אחריות שביעות רצון מלאה
         </p>
 
       </div>

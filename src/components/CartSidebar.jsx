@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '../context/CartContext'
+import { PRODUCTS } from './Products'
 
 export default function CartSidebar() {
   const { items, removeItem, updateQty, total, count, isOpen, setIsOpen } = useCart()
@@ -78,11 +79,16 @@ export default function CartSidebar() {
                   className="flex-1 flex flex-col items-center justify-center px-8 text-center gap-5"
                 >
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center text-3xl"
+                    className="w-20 h-20 rounded-full flex items-center justify-center"
                     style={{ background: 'var(--c-matcha-pale)' }}
                     aria-hidden="true"
                   >
-                    🍵
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M8 12h20l-2.5 14H10.5L8 12z"/>
+                      <path d="M6 12h24"/>
+                      <path d="M13 12q0-4 5-5 5 1 5 5"/>
+                      <path d="M13 22q5 4 10 0"/>
+                    </svg>
                   </div>
                   <div>
                     <h3 className="text-xl font-extrabold text-ink mb-2">החנות בקרוב!</h3>
@@ -95,13 +101,13 @@ export default function CartSidebar() {
                   <a
                     href="#contact"
                     onClick={() => setIsOpen(false)}
-                    className="btn-gradient w-full text-center !rounded-2xl !py-3.5"
+                    className="btn-dark w-full text-center !rounded-2xl !py-3.5"
                     aria-label="לטופס השארת פרטים"
                   >
                     <span>השאירו פרטים ←</span>
                   </a>
                   <p className="text-xs text-ink-muted">
-                    ₪{total} ממתינים לכם — לא ילכו לשום מקום 😊
+                    ₪{total} ממתינים לכם — לא ילכו לשום מקום.
                   </p>
                 </motion.div>
               ) : (
@@ -115,7 +121,17 @@ export default function CartSidebar() {
                 >
                   {items.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full text-center gap-4">
-                      <span className="text-5xl">🍃</span>
+                      <div style={{
+                        width: '56px', height: '56px', borderRadius: '50%',
+                        background: 'var(--c-matcha-pale)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }} aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="var(--accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M4 7h18l-2 14H6L4 7z"/>
+                          <path d="M3 7h20"/>
+                          <path d="M9 7q0-3 4-4 4 1 4 4"/>
+                        </svg>
+                      </div>
                       <p className="text-ink-soft text-sm">העגלה ריקה עדיין.</p>
                       <button
                         onClick={() => setIsOpen(false)}
@@ -137,14 +153,24 @@ export default function CartSidebar() {
                             transition={{ duration: 0.2 }}
                             className="flex items-start gap-4 bg-white rounded-2xl p-4 border border-ink/[0.06]"
                           >
-                            {/* Color swatch */}
-                            <div
-                              className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center text-xl"
-                              style={{ background: 'var(--c-matcha-pale)' }}
-                              aria-hidden="true"
-                            >
-                              🍃
-                            </div>
+                            {/* Product thumbnail */}
+                            {(() => {
+                              const prod = PRODUCTS.find(p => p.id === item.id)
+                              return prod ? (
+                                <img
+                                  src={prod.img}
+                                  alt=""
+                                  aria-hidden="true"
+                                  className="w-12 h-12 rounded-xl flex-shrink-0 object-cover"
+                                />
+                              ) : (
+                                <div
+                                  className="w-12 h-12 rounded-xl flex-shrink-0"
+                                  style={{ background: 'var(--c-matcha-pale)' }}
+                                  aria-hidden="true"
+                                />
+                              )
+                            })()}
 
                             <div className="flex-1 min-w-0">
                               <p className="font-semibold text-sm text-ink leading-tight truncate">
@@ -209,7 +235,7 @@ export default function CartSidebar() {
                 <p className="text-xs text-ink-muted">משלוח חינם בהזמנה ראשונה ✓</p>
                 <button
                   onClick={() => setShowCheckout(true)}
-                  className="btn-gradient w-full !rounded-2xl !py-4 !text-base"
+                  className="btn-dark w-full !rounded-2xl !py-4 !text-base"
                   aria-label="המשיכו לתשלום"
                 >
                   <span>לתשלום ←</span>

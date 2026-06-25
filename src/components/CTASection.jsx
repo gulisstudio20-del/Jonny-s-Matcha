@@ -51,7 +51,7 @@ export default function CTASection() {
 
       <div
         className="container"
-        style={{ position: 'relative', zIndex: 1, maxWidth: '40rem' }}
+        style={{ position: 'relative', zIndex: 1, maxWidth: '44rem', textAlign: 'center' }}
       >
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -59,13 +59,6 @@ export default function CTASection() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.85, ease }}
         >
-          <span
-            className="section-label"
-            style={{ color: 'rgba(90,155,42,0.85)' }}
-          >
-            הצטרפו למשפחה
-          </span>
-
           <h2
             style={{
               fontFamily: 'var(--f-body)',
@@ -84,9 +77,10 @@ export default function CTASection() {
             style={{
               fontSize: '1.1rem',
               lineHeight: 1.85,
-              color: 'rgba(242,237,226,0.55)',
+              color: 'rgba(242,237,226,0.72)',
               marginBottom: '2.5rem',
               maxWidth: '32rem',
+              margin: '0 auto 2.5rem',
             }}
           >
             הירשמו לניוזלטר ותהיו הראשונים לדעת על מוצרים חדשים, מתכונים ומבצעים מיוחדים.
@@ -134,7 +128,7 @@ export default function CTASection() {
                 noValidate
                 exit={{ opacity: 0 }}
                 aria-label="טופס הרשמה"
-                style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '28rem' }}
+                style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '28rem', margin: '0 auto' }}
               >
                 {/* Honeypot */}
                 <input

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import lifestyleImg from '../../assets/images/matcha-lifestyle.jpg'
+import lifestyleImg from '../../assets/images/pexels-olenkabohovyk-25686145.jpg'
 import { fadeRight, fadeLeft, viewport } from '../animations'
 
 const pills = [
@@ -35,21 +35,12 @@ export default function About() {
             />
             <img
               src={lifestyleImg}
-              alt="שתי כוסות מאצ׳ה לאטה קרה מחוץ לבית קפה"
+              alt="מאצ׳ה לאטה קרה בכוס זכוכית על שולחן עץ"
               className="relative rounded-3xl w-full object-cover shadow-card"
-              width="560" height="500"
+              style={{ aspectRatio: '4/5', objectPosition: 'center top' }}
+              width="560" height="700"
               loading="lazy"
             />
-            <div
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl px-6 py-4 border shadow-card-hover"
-              style={{ borderColor: 'rgba(24,18,10,0.06)' }}
-              aria-hidden="true"
-            >
-              <p className="text-sm font-medium mb-0.5 uppercase tracking-wider" style={{ color: 'var(--mute)' }}>Direct Trade</p>
-              <p className="font-black text-2xl" style={{ color: 'var(--ink)' }}>
-                Uji, <span className="text-lg" style={{ color: 'var(--accent)' }}>Kyoto</span>
-              </p>
-            </div>
           </motion.div>
 
           {/* Content */}
@@ -84,7 +75,15 @@ export default function About() {
               יצרנו קשר ישיר עם גדלנים משפחתיים באוג׳י, קיוטו. ללא ספקי ביניים, ללא פשרות על איכות — מה שמגיע אליכם הוא מה שגדל שם.
             </p>
 
-            <ul className="flex flex-wrap gap-2" aria-label="יתרונות המוצר">
+            <ul
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, auto)',
+                justifyContent: 'start',
+                gap: '0.55rem',
+              }}
+              aria-label="יתרונות המוצר"
+            >
               {pills.map((pill) => (
                 <li
                   key={pill.label}

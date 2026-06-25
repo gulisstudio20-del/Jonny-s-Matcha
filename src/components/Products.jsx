@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import heroBowl  from '../../assets/images/hero-bowl.png'
 import powderImg  from '../../assets/images/powder.png'
 import matchaCup  from '../../assets/images/matcha-cup.jpg'
+import toolsImg   from '../../assets/images/tools.png'
 import { useCart } from '../context/CartContext'
 
 export const PRODUCTS = [
@@ -37,6 +38,31 @@ export const PRODUCTS = [
     price:  129,
     img:    matchaCup,
     imgAlt: 'מאצ׳ה לאטה קרה',
+    badge:  null,
+  },
+]
+
+const ACCESSORIES = [
+  {
+    id:     'chasen',
+    label:  'ציוד הכנה',
+    name:   'מצפצת במבוק',
+    unit:   '1 יחידה',
+    desc:   'מצפצת Chasen מסורתית, 100 שיניים. מייצרת קצף חלק — השלב שעושה את ההבדל.',
+    price:  65,
+    img:    toolsImg,
+    imgAlt: 'מצפצת במבוק',
+    badge:  null,
+  },
+  {
+    id:     'chawan',
+    label:  'ציוד הכנה',
+    name:   'קערה + מסננת',
+    unit:   'סט',
+    desc:   'קערת Chawan קרמית ומסננת נירוסטה — כל מה שצריך להכנה נכונה.',
+    price:  89,
+    img:    heroBowl,
+    imgAlt: 'קערת מאצ׳ה',
     badge:  null,
   },
 ]
@@ -388,13 +414,79 @@ export default function Products() {
           </span>
         </div>
 
-        {/* Product list */}
-        <div role="list" aria-label="מוצרים">
+        {/* Matcha product list */}
+        <div role="list" aria-label="מוצרי מאצ׳ה">
           {PRODUCTS.map((p, i) => (
             <div key={p.id} role="listitem">
               <ProductRow product={p} index={i} />
             </div>
           ))}
+        </div>
+
+        {/* Accessories divider */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1.25rem',
+            marginTop: '2.5rem',
+            marginBottom: '0.5rem',
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'var(--f-body)',
+              fontSize: '1rem',
+              fontWeight: 700,
+              color: 'var(--ink)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            ציוד הכנה
+          </span>
+          <div style={{ flex: 1, height: '1px', background: 'var(--line-2)' }} aria-hidden="true" />
+        </div>
+
+        {/* Accessories list */}
+        <div role="list" aria-label="ציוד הכנה">
+          {ACCESSORIES.map((p, i) => (
+            <div key={p.id} role="listitem">
+              <ProductRow product={p} index={i} />
+            </div>
+          ))}
+        </div>
+
+        {/* Bridge to gift sets */}
+        <div
+          style={{
+            marginTop: '2rem',
+            padding: '1.25rem 1.5rem',
+            background: 'rgba(61,110,28,0.06)',
+            borderRadius: '0.85rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '1rem',
+          }}
+        >
+          <p style={{ fontSize: '1.05rem', color: 'var(--ink)', lineHeight: 1.7 }}>
+            מחפשים מתנה? יש לנו <strong>סטים מוכנים</strong> — מאצ׳ה + ציוד ביחד.
+          </p>
+          <a
+            href="#gifts"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+              fontSize: '0.95rem', fontWeight: 700, color: 'var(--accent)',
+              textDecoration: 'none', whiteSpace: 'nowrap',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--accent)'}
+          >
+            לסטים המתנה
+            <span aria-hidden="true">←</span>
+          </a>
         </div>
 
         {/* Bottom note */}
@@ -408,7 +500,7 @@ export default function Products() {
             lineHeight: 1.7,
           }}
         >
-          משלוח חינם בהזמנה ראשונה &nbsp;·&nbsp; 100% אורגני מוסמך &nbsp;·&nbsp; אחריות שביעות רצון מלאה
+          משלוח חינם בהזמנה ראשונה &nbsp;·&nbsp; 100% אורגני &nbsp;·&nbsp; אחריות שביעות רצון מלאה
         </p>
 
       </div>

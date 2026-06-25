@@ -194,42 +194,6 @@ export default function Hero() {
           }}
         />
 
-        {/* Bottom price detail */}
-        <motion.div
-          initial={reduced ? {} : { opacity: 0, y: 14 }}
-          animate={reduced ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8, ease }}
-          aria-label="מחיר מתחיל מ-₪129"
-          style={{
-            position: 'absolute',
-            bottom: '2rem',
-            right: '2rem',
-            display: 'inline-flex',
-            alignItems: 'baseline',
-            gap: '0.5rem',
-            zIndex: 4,
-          }}
-        >
-          <span style={{
-            fontSize: '0.72rem',
-            color: 'rgba(242,237,226,0.38)',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            fontWeight: 600,
-          }}>
-            מתחיל מ
-          </span>
-          <strong style={{
-            fontFamily: 'var(--f-display)',
-            fontSize: '1.6rem',
-            fontWeight: 700,
-            color: 'rgba(242,237,226,0.9)',
-            letterSpacing: '-0.02em',
-          }}>
-            ₪129
-          </strong>
-        </motion.div>
-
         {/* Vertical text edge detail */}
         <div
           aria-hidden="true"

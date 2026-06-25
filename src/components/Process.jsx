@@ -5,22 +5,22 @@ const steps = [
   {
     number: '01',
     title: 'קטיפה ביד',
-    desc: 'הגדלנים באוג׳י בוחרים ידנית רק את העלים הצעירים ביותר. קטיפה בבוקר המוקדם, כשהעלה בשיא איכותו.',
+    desc: 'הגדלנים באוג׳י קוטפים ידנית רק את העלים הצעירים ביותר. בוקר מוקדם, כשהעלים הכי טובים.',
   },
   {
     number: '02',
     title: 'אידוי מיידי',
-    desc: 'האידוי המהיר מיד לאחר הקטיפה עוצר את תהליך החמצון. כך נשמרים הצבע, הטעם והרכיבים הפעילים.',
+    desc: 'מיד אחרי הקטיפה מאדים את העלים — זה עוצר את ההתחמצנות ושומר על הצבע, הטעם וכל הטוב שבמאצ׳ה.',
   },
   {
     number: '03',
     title: 'אריזה בוואקום',
-    desc: 'מיד לאחר הטחינה האבקה נארזת בוואקום. ללא חמצן, ללא אור — הטעם מגיע אליכם שלם.',
+    desc: 'מיד אחרי הטחינה האבקה נארזת בוואקום. בלי אוויר, בלי אור — הטעם מגיע אליכם שלם.',
   },
   {
     number: '04',
     title: 'ישירות אליכם',
-    desc: 'ללא מחסנים וללא ביניים. כל אריזה מגיעה עם תאריך קטיף — כדי שתדעו בדיוק מה אתם שותים.',
+    desc: 'בלי מחסנים, בלי ספקי ביניים. כל אריזה מגיעה עם תאריך קטיף — כדי שתדעו בדיוק מה אתם שותים.',
   },
 ]
 
@@ -38,17 +38,8 @@ export default function Process() {
         aria-hidden="true"
         style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(121,184,53,0.07) 0%, transparent 70%)' }}
       />
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 font-black select-none pointer-events-none"
-        style={{ fontSize: '18rem', lineHeight: 1, color: 'rgba(255,255,255,0.018)' }}
-        aria-hidden="true"
-      >
-        茶
-      </div>
-
       <div className="container relative z-10">
         <div className="text-center mb-16">
-          <span className="section-label" style={{ color: 'rgba(90,155,42,0.8)', textAlign: 'center', display: 'block' }}>מהחווה לכוס</span>
           <h2
             style={{
               fontFamily: 'var(--f-body)',
@@ -65,7 +56,7 @@ export default function Process() {
             </em>
           </h2>
           <p className="mt-4 max-w-md mx-auto text-lg" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            כל שלב בשרשרת מתועד ונשלט. אין קיצורי דרך.
+            כל שלב מתועד ונבדק. אין קיצורי דרך.
           </p>
         </div>
 

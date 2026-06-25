@@ -56,7 +56,7 @@ const steps = [
   {
     number: '04',
     title: 'שתו מיד',
-    desc: 'המאצ׳ה בשיאה ברגע ההכנה. הקצף מתפזר תוך 2 דקות. החזיקו את הקערה בשתי ידיים, סובבו שלוש פעמות בכיוון השעון — ושתו בגמיעות קטנות.',
+    desc: 'המאצ׳ה הכי טובה ממש אחרי ההכנה. הקצף מתפזר תוך 2 דקות. החזיקו את הקערה בשתי ידיים, סובבו שלוש פעמים בכיוון השעון — ושתו בלגימות קטנות.',
     metric: '0–2 דקות',
     metricLabel: 'מרגע ההכנה',
     icon: (
@@ -136,7 +136,7 @@ export default function BrewingGuide() {
             </em>
           </h2>
           <p style={{ fontSize: '1.15rem', color: 'var(--ink-2)', lineHeight: 1.8, opacity: 0.75 }}>
-            ארבעה שלבים פשוטים — אבל כל אחד מהם קריטי. כאן ההבדל בין מאצ׳ה מעולה לממוצעת.
+            ארבעה שלבים — אבל כל אחד מהם חשוב. כאן ההבדל בין מאצ׳ה מעולה לסתמית.
           </p>
         </motion.div>
 
@@ -271,7 +271,7 @@ export default function BrewingGuide() {
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}
         >
           <p style={{ fontSize: '1.05rem', color: 'rgba(10,20,7,0.7)', lineHeight: 1.75, maxWidth: '30rem' }}>
-            צריכים ציוד? <strong style={{ color: 'var(--ink)' }}>קערה, מצפצת ומסננת</strong> — הכל זמין בסטים שלנו.
+            צריכים ציוד? <strong style={{ color: 'var(--ink)' }}>קערה, מצפצת ומסננת</strong> — אצלנו תוכלו למצוא הכל.
           </p>
           <a
             href="#gifts"

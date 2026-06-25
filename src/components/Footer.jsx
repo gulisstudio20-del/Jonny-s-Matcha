@@ -188,7 +188,7 @@ export default function Footer() {
               </li>
               <li style={{ fontSize: '1rem', color: 'var(--mute-2)' }}>משלוחים בכל הארץ</li>
               <li style={{ fontSize: '1rem', color: 'var(--mute-2)' }}>✓ משלוח חינם בהזמנה ראשונה</li>
-              <li style={{ fontSize: '1rem', color: 'var(--mute-2)' }}>✓ 100% מאורגני מוסמך</li>
+              <li style={{ fontSize: '1rem', color: 'var(--mute-2)' }}>✓ 100% אורגני</li>
             </ul>
           </div>
         </div>

@@ -83,7 +83,7 @@ export default function CTASection() {
               margin: '0 auto 2.5rem',
             }}
           >
-            הירשמו לניוזלטר ותהיו הראשונים לדעת על מוצרים חדשים, מתכונים ומבצעים מיוחדים.
+            מתכונים, עדכונים ומה שחדש — ישירות למייל. בלי ספאם, רק דברים שאנחנו עצמנו היינו רוצים לקבל.
           </p>
 
           <AnimatePresence mode="wait">
@@ -107,6 +107,7 @@ export default function CTASection() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: '1.25rem',
+                    marginInline: 'auto',
                     fontSize: '1.2rem',
                     color: '#fff',
                   }}

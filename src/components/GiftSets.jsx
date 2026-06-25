@@ -8,7 +8,7 @@ const GIFTS = [
   {
     id:      'starter',
     name:    'סט מתחילים',
-    desc:    'מאצ׳ה + מטרפה + קערה — כל מה שצריך להתחיל את המסע',
+    desc:    'מאצ׳ה + מטרפה + קערה — כל מה שצריך כדי להתחיל להכין בבית',
     price:   229,
     img:     heroBowl,
     imgAlt:  'סט מתחילים',
@@ -16,7 +16,7 @@ const GIFTS = [
   {
     id:      'master',
     name:    'סט מאסטר',
-    desc:    'הקולקציה המלאה + מדריך הכנה + שיעור וידאו מקצועי',
+    desc:    'הקולקציה המלאה + מדריך הכנה + וידאו של יוני שמסביר צעד אחר צעד',
     price:   349,
     img:     toolsImg,
     imgAlt:  'סט מאסטר',
@@ -24,7 +24,7 @@ const GIFTS = [
   {
     id:      'premium',
     name:    'סט מתנה פרימיום',
-    desc:    'ארזית מתנה יוקרתית עם 3 סוגי מאצ׳ה וכלי הכנה',
+    desc:    'קופסת מתנה עם 3 סוגי מאצ׳ה וכלי הכנה — למי שרוצה לתת משהו שבאמת יזכרו',
     price:   489,
     img:     powderImg,
     imgAlt:  'סט מתנה פרימיום',
@@ -161,7 +161,6 @@ export default function GiftSets() {
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'right', marginBottom: '3rem' }}>
-          <span className="section-label">לכל אירוע</span>
           <h2
             style={{
               fontFamily: 'var(--f-body)',
@@ -170,10 +169,14 @@ export default function GiftSets() {
               color: 'var(--ink)',
               lineHeight: 1.05,
               letterSpacing: '-0.02em',
+              marginBottom: '0.75rem',
             }}
           >
             סטי מתנה
           </h2>
+          <p style={{ fontSize: '1.1rem', color: 'var(--mute)', lineHeight: 1.75, maxWidth: '36rem' }}>
+            מתנה שאומרת "הבאתי לך משהו שבאמת בדקתי". הכל ארוז ומוכן.
+          </p>
         </div>
 
         {/* Cards */}

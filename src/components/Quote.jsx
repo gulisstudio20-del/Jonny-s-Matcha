@@ -35,7 +35,7 @@ export default function Quote() {
         ״
       </div>
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
         <motion.figure
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function Quote() {
         >
           {/* Stars */}
           <div
-            style={{ display: 'flex', gap: '0.3rem', marginBottom: '2.5rem' }}
+            style={{ display: 'flex', gap: '0.3rem', marginBottom: '2.5rem', justifyContent: 'center' }}
             role="img"
             aria-label="5 כוכבים"
           >
@@ -69,6 +69,7 @@ export default function Quote() {
                 color: 'rgba(242,237,226,0.9)',
                 marginBottom: '2.5rem',
                 maxWidth: '42rem',
+                marginInline: 'auto',
               }}
             >
               ״שתיתי מאצ׳ה בכל רחבי יפן — ואני לא מוצא הבדל בין jonny's לבין מה שמגישים בקיוטו.״
@@ -78,6 +79,7 @@ export default function Quote() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '1rem',
               }}
             >

@@ -1,12 +1,6 @@
 const ITEMS = [
-  { text: 'ישירות מיפן',           lang: 'he' },
-  { text: '— +5,000 לקוחות מרוצים', lang: 'he' },
-  { text: '— טעם שאין כמוהו',        lang: 'he' },
-  { text: '— משלוח חינם',            lang: 'he' },
-  { text: '— CEREMONIAL GRADE',      lang: 'en' },
-  { text: '— 100% ORGANIC',          lang: 'en' },
-  { text: '— SINGLE ORIGIN · UJI',   lang: 'en' },
-  { text: '— ישירות מהחוה',          lang: 'he' },
+  { text: 'ישירות מיפן',       lang: 'he' },
+  { text: 'משלוחים לכל הארץ', lang: 'he' },
 ]
 
 export default function MarqueeBar() {

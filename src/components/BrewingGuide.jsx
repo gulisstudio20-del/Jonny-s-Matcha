@@ -205,7 +205,7 @@ export default function BrewingGuide() {
                   {step.icon}
                 </div>
                 <span style={{
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: "var(--f-display)",
                   fontSize: '0.75rem', fontWeight: 700,
                   letterSpacing: '0.2em', color: 'rgba(10,20,7,0.35)',
                   textTransform: 'uppercase',

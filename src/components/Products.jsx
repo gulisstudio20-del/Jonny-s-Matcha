@@ -105,7 +105,7 @@ function ProductRow({ product, index }) {
         >
           <span
             style={{
-              fontFamily: "'JetBrains Mono', 'Courier New', monospace",
+              fontFamily: "var(--f-display)",
               fontSize: '0.88rem',
               fontWeight: 700,
               letterSpacing: '0.15em',
@@ -365,7 +365,7 @@ export default function Products() {
         >
           <span
             style={{
-              fontFamily: "'JetBrains Mono', 'Courier New', monospace",
+              fontFamily: "var(--f-display)",
               fontSize: '0.88rem',
               fontWeight: 700,
               letterSpacing: '0.15em',

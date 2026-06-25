@@ -105,7 +105,7 @@
 
   /* Section label — English/Latin only (e.g. "CEREMONIAL GRADE") */
   .section-label-en {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: var(--f-display);
     font-size: 0.83rem;
     font-weight: 700;
     letter-spacing: 0.2em;

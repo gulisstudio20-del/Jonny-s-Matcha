@@ -378,6 +378,7 @@ export default function Products() {
 
         {/* Grade guide */}
         <div
+          className="grade-guide"
           style={{
             display: 'flex',
             gap: '1rem',
@@ -404,11 +405,11 @@ export default function Products() {
           <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
             <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Ceremonial</strong> — לשתייה טהורה בקערה
           </span>
-          <span style={{ color: 'var(--line-2)' }}>·</span>
+          <span className="grade-guide-sep" style={{ color: 'var(--line-2)' }}>·</span>
           <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
             <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Premium</strong> — שתייה + אפייה
           </span>
-          <span style={{ color: 'var(--line-2)' }}>·</span>
+          <span className="grade-guide-sep" style={{ color: 'var(--line-2)' }}>·</span>
           <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
             <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Latte Blend</strong> — עם חלב, כל יום
           </span>

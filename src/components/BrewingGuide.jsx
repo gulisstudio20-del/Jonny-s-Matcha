@@ -156,6 +156,7 @@ export default function BrewingGuide() {
               key={step.number}
               variants={fadeUp}
               role="listitem"
+              className="brewing-card"
               style={{
                 background: 'rgba(255,255,255,0.28)',
                 backdropFilter: 'blur(28px)',

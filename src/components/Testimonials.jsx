@@ -109,6 +109,7 @@ export default function Testimonials() {
             <motion.div
               key={t.id}
               role="listitem"
+              className="testimonial-row"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
@@ -122,8 +123,9 @@ export default function Testimonials() {
                 borderBottom: i < testimonials.length - 1 ? '1px solid var(--line)' : 'none',
               }}
             >
-              {/* Index */}
+              {/* Index — hidden on mobile via CSS */}
               <span
+                className="testimonial-index"
                 aria-hidden="true"
                 style={{
                   fontFamily: 'var(--f-body)',
@@ -141,7 +143,7 @@ export default function Testimonials() {
               {/* Stars + text */}
               <div>
                 <div
-                  style={{ display: 'flex', gap: '2px', marginBottom: '0.85rem' }}
+                  style={{ display: 'flex', gap: '2px', marginBottom: '0.75rem' }}
                   role="img"
                   aria-label="5 כוכבים"
                 >
@@ -152,11 +154,11 @@ export default function Testimonials() {
                 <p
                   style={{
                     fontFamily: 'var(--f-body)',
-                    fontSize: 'clamp(1.15rem, 2.2vw, 1.35rem)',
+                    fontSize: 'clamp(1.05rem, 2.2vw, 1.35rem)',
                     lineHeight: 1.75,
                     color: 'var(--ink)',
                     fontWeight: 400,
-                    marginBottom: '1rem',
+                    marginBottom: '0.85rem',
                   }}
                 >
                   ״{t.text}״
@@ -164,11 +166,11 @@ export default function Testimonials() {
               </div>
 
               {/* Author */}
-              <div style={{ textAlign: 'left', paddingTop: '0.3rem', flexShrink: 0 }}>
-                <strong style={{ display: 'block', fontFamily: 'var(--f-body)', fontSize: '1rem', fontWeight: 700, color: 'var(--ink)' }}>
+              <div className="testimonial-author" style={{ textAlign: 'left', paddingTop: '0.3rem', flexShrink: 0 }}>
+                <strong style={{ display: 'block', fontFamily: 'var(--f-body)', fontSize: '0.97rem', fontWeight: 700, color: 'var(--ink)' }}>
                   {t.author}
                 </strong>
-                <span style={{ fontFamily: 'var(--f-body)', fontSize: '0.92rem', color: 'var(--mute-2)', fontWeight: 400 }}>
+                <span style={{ fontFamily: 'var(--f-body)', fontSize: '0.88rem', color: 'var(--mute-2)', fontWeight: 400 }}>
                   {t.location}
                 </span>
               </div>

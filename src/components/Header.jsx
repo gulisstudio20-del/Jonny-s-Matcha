@@ -61,8 +61,8 @@ export default function Header() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.65rem 1.5rem',
+              gap: '0.45rem',
+              padding: '0.65rem 1.1rem',
               borderRadius: '999px',
               border: '1.5px solid var(--line-2)',
               background: 'transparent',
@@ -71,8 +71,9 @@ export default function Header() {
               fontSize: '0.92rem',
               letterSpacing: '0.04em',
               cursor: 'pointer',
-              transition: 'all 0.2s',
+              transition: 'border-color 0.2s, color 0.2s',
               position: 'relative',
+              minHeight: '44px',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'var(--accent)'
@@ -83,20 +84,21 @@ export default function Header() {
               e.currentTarget.style.color = 'var(--ink)'
             }}
           >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
-            <span>עגלה</span>
+            {/* Hide label on mobile — icon + badge is enough */}
+            <span className="hidden sm:inline">עגלה</span>
             {count > 0 && (
               <span
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: '17px',
-                  height: '17px',
+                  width: '18px',
+                  height: '18px',
                   borderRadius: '50%',
                   background: 'var(--ink)',
                   color: 'var(--bg)',
@@ -173,7 +175,7 @@ export default function Header() {
               <span style={{ fontWeight: 300, color: scrolled ? 'var(--accent)' : 'rgba(90,155,42,0.9)' }}>matcha</span>
             </a>
 
-            {/* Mobile burger */}
+            {/* Mobile burger — 44×44 touch target */}
             <button
               onClick={toggleMenu}
               aria-expanded={menuOpen}
@@ -183,11 +185,16 @@ export default function Header() {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '5px',
-                padding: '0.35rem',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '5.5px',
+                minWidth: '44px',
+                minHeight: '44px',
+                padding: '0',
                 background: 'transparent',
                 border: 'none',
                 cursor: 'pointer',
+                WebkitTapHighlightColor: 'transparent',
               }}
             >
               {[0, 1, 2].map((i) => (
@@ -195,16 +202,16 @@ export default function Header() {
                   key={i}
                   style={{
                     display: 'block',
-                    width: '22px',
+                    width: '24px',
                     height: '1.5px',
                     background: scrolled ? 'var(--ink)' : 'var(--bg)',
                     borderRadius: '2px',
-                    transition: 'all 0.3s ease',
+                    transition: 'transform 0.3s ease, opacity 0.3s ease, background 0.4s ease',
                     transformOrigin: 'center',
                     transform: menuOpen
-                      ? i === 0 ? 'rotate(45deg) translate(4.5px, 4.5px)'
+                      ? i === 0 ? 'rotate(45deg) translate(5px, 5px)'
                         : i === 1 ? 'scaleX(0)'
-                        : 'rotate(-45deg) translate(4.5px, -4.5px)'
+                        : 'rotate(-45deg) translate(5px, -5px)'
                       : 'none',
                     opacity: menuOpen && i === 1 ? 0 : 1,
                   }}
@@ -249,11 +256,15 @@ export default function Header() {
                 transition={{ delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   fontFamily: 'var(--f-display)',
-                  fontSize: 'clamp(2rem, 6vw, 2.8rem)',
+                  fontSize: 'clamp(2.2rem, 7vw, 3rem)',
                   fontWeight: 800,
                   color: 'var(--ink)',
                   letterSpacing: '-0.03em',
                   textDecoration: 'none',
+                  WebkitTapHighlightColor: 'transparent',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
                 onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink)'}

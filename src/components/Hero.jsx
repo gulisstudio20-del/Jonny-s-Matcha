@@ -29,19 +29,19 @@ export default function Hero() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
-          padding: 'clamp(6rem, 10vw, 8rem) clamp(2rem, 4vw, 4.5rem) clamp(3rem, 6vw, 5rem)',
+          /* padding is in .hero-split-text CSS with mobile override */
         }}
       >
-        <div style={{ width: '100%', maxWidth: '32rem' }}>
+        <div style={{ width: '100%', maxWidth: 'min(32rem, 100%)' }}>
 
           <motion.h1
             variants={reduced ? {} : itemV}
-            style={{ marginBottom: '2rem', lineHeight: 0.88 }}
+            style={{ marginBottom: '1.75rem', lineHeight: 0.88 }}
           >
             <span dir="ltr" style={{
               display: 'block',
               fontFamily: 'var(--f-display)',
-              fontSize: 'clamp(5rem, 10.5vw, 13rem)',
+              fontSize: 'clamp(3.4rem, 11vw, 13rem)',
               fontWeight: 900,
               letterSpacing: '-0.03em',
               lineHeight: 0.88,
@@ -52,7 +52,7 @@ export default function Hero() {
             <span dir="ltr" style={{
               display: 'block',
               fontFamily: 'var(--f-display)',
-              fontSize: 'clamp(5rem, 10.5vw, 13rem)',
+              fontSize: 'clamp(3.4rem, 11vw, 13rem)',
               fontWeight: 300,
               letterSpacing: '-0.03em',
               lineHeight: 0.88,
@@ -69,18 +69,18 @@ export default function Hero() {
           />
 
           <motion.p variants={reduced ? {} : itemV} style={{
-            fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)',
+            fontSize: 'clamp(0.95rem, 2.2vw, 1.2rem)',
             color: 'rgba(242,237,226,0.62)',
             lineHeight: 1.85,
-            marginBottom: '2.5rem',
-            maxWidth: '28rem',
+            marginBottom: '2rem',
+            maxWidth: 'min(28rem, 100%)',
           }}>
             מאצ׳ה סרמוניאלית מדרג ראשון, ישירות מגדלנים משפחתיים באוג׳י, קיוטו. כוס אחת ותבינו את ההבדל.
           </motion.p>
 
           <motion.div
             variants={reduced ? {} : itemV}
-            style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem' }}
+            style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}
           >
             <a href="#products" className="btn-white">
               <span>לחנות</span>
@@ -194,8 +194,9 @@ export default function Hero() {
           }}
         />
 
-        {/* Vertical text edge detail */}
+        {/* Vertical text edge detail — hidden on mobile */}
         <div
+          className="hero-vertical-label"
           aria-hidden="true"
           dir="ltr"
           style={{

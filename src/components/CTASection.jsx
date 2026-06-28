@@ -131,14 +131,14 @@ export default function CTASection() {
                 aria-label="טופס הרשמה"
                 style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '28rem', margin: '0 auto' }}
               >
-                {/* Honeypot */}
+                {/* Honeypot — zero-size hidden, not left:-9999px which breaks RTL scrollWidth */}
                 <input
                   type="text"
                   name="website"
                   tabIndex={-1}
                   autoComplete="off"
                   aria-hidden="true"
-                  style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+                  style={{ position: 'absolute', width: 0, height: 0, opacity: 0, pointerEvents: 'none', overflow: 'hidden' }}
                 />
 
                 <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>

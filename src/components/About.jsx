@@ -77,9 +77,8 @@ export default function About() {
 
             <ul
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, auto)',
-                justifyContent: 'start',
+                display: 'flex',
+                flexWrap: 'wrap',
                 gap: '0.55rem',
               }}
               aria-label="יתרונות המוצר"

@@ -98,6 +98,7 @@ function ProductRow({ product, index }) {
     >
       {/* Thumbnail */}
       <div
+        className="product-row-thumb"
         style={{
           width: '90px',
           height: '90px',
@@ -118,7 +119,7 @@ function ProductRow({ product, index }) {
       </div>
 
       {/* Info */}
-      <div style={{ flex: 1, minWidth: 0 }}>
+      <div className="product-row-info" style={{ flex: 1, minWidth: 0 }}>
         {/* Grade label + badge + unit */}
         <div
           style={{
@@ -198,107 +199,114 @@ function ProductRow({ product, index }) {
         </p>
       </div>
 
-      {/* Price */}
-      <strong
-        style={{
-          fontFamily: 'var(--f-body)',
-          fontSize: 'clamp(1.3rem, 2.5vw, 1.65rem)',
-          fontWeight: 900,
-          color: 'var(--ink)',
-          letterSpacing: '-0.01em',
-          fontVariantNumeric: 'tabular-nums',
-          flexShrink: 0,
-          whiteSpace: 'nowrap',
-        }}
-      >
-        ₪{product.price}
-      </strong>
+      {/* Price + Qty + Add — grouped so they wrap together on mobile */}
+      <div className="product-row-actions">
+        <strong
+          className="product-row-price"
+          style={{
+            fontFamily: 'var(--f-body)',
+            fontSize: 'clamp(1.3rem, 2.5vw, 1.65rem)',
+            fontWeight: 900,
+            color: 'var(--ink)',
+            letterSpacing: '-0.01em',
+            fontVariantNumeric: 'tabular-nums',
+            flexShrink: 0,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          ₪{product.price}
+        </strong>
 
-      {/* Quantity selector */}
-      {!added && (
-        <div
+        {/* Quantity selector */}
+        {!added && (
+          <div
+            className="product-row-qty"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              border: '1.5px solid var(--line-2)',
+              borderRadius: '999px',
+              overflow: 'hidden',
+              flexShrink: 0,
+            }}
+            aria-label="כמות"
+          >
+            <button
+              onClick={decQty}
+              aria-label="הפחת כמות"
+              style={{
+                padding: '0.6rem 0.85rem',
+                background: 'transparent',
+                border: 'none',
+                cursor: qty === 1 ? 'not-allowed' : 'pointer',
+                fontSize: '1.1rem',
+                color: qty === 1 ? 'var(--mute-2)' : 'var(--ink)',
+                lineHeight: 1,
+                transition: 'color 0.15s',
+                minHeight: '44px',
+              }}
+            >−</button>
+            <span
+              style={{
+                minWidth: '1.75rem',
+                textAlign: 'center',
+                fontWeight: 700,
+                fontSize: '1rem',
+                color: 'var(--ink)',
+                userSelect: 'none',
+              }}
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {qty}
+            </span>
+            <button
+              onClick={incQty}
+              aria-label="הוסף כמות"
+              style={{
+                padding: '0.6rem 0.85rem',
+                background: 'transparent',
+                border: 'none',
+                cursor: qty === 9 ? 'not-allowed' : 'pointer',
+                fontSize: '1.1rem',
+                color: qty === 9 ? 'var(--mute-2)' : 'var(--ink)',
+                lineHeight: 1,
+                transition: 'color 0.15s',
+                minHeight: '44px',
+              }}
+            >+</button>
+          </div>
+        )}
+
+        {/* Add to cart */}
+        <button
+          className="product-row-btn"
+          onClick={handleAdd}
+          aria-label={`הוסף ${product.name} לעגלה`}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            border: '1.5px solid var(--line-2)',
+            gap: '0.35rem',
+            padding: '0.65rem 1.35rem',
             borderRadius: '999px',
-            overflow: 'hidden',
+            background: added ? 'var(--accent)' : hovered ? 'var(--ink)' : 'transparent',
+            color: added || hovered ? 'var(--bg)' : 'var(--ink)',
+            border: '1.5px solid',
+            borderColor: added ? 'var(--accent)' : hovered ? 'var(--ink)' : 'var(--line-2)',
+            fontWeight: 700,
+            fontSize: '1.05rem',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            transition: 'all 0.25s ease',
+            minWidth: '8rem',
+            justifyContent: 'center',
+            cursor: 'pointer',
             flexShrink: 0,
           }}
-          aria-label="כמות"
         >
-          <button
-            onClick={decQty}
-            aria-label="הפחת כמות"
-            style={{
-              padding: '0.6rem 0.85rem',
-              background: 'transparent',
-              border: 'none',
-              cursor: qty === 1 ? 'not-allowed' : 'pointer',
-              fontSize: '1.1rem',
-              color: qty === 1 ? 'var(--mute-2)' : 'var(--ink)',
-              lineHeight: 1,
-              transition: 'color 0.15s',
-            }}
-          >−</button>
-          <span
-            style={{
-              minWidth: '1.75rem',
-              textAlign: 'center',
-              fontWeight: 700,
-              fontSize: '1rem',
-              color: 'var(--ink)',
-              userSelect: 'none',
-            }}
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {qty}
-          </span>
-          <button
-            onClick={incQty}
-            aria-label="הוסף כמות"
-            style={{
-              padding: '0.6rem 0.85rem',
-              background: 'transparent',
-              border: 'none',
-              cursor: qty === 9 ? 'not-allowed' : 'pointer',
-              fontSize: '1.1rem',
-              color: qty === 9 ? 'var(--mute-2)' : 'var(--ink)',
-              lineHeight: 1,
-              transition: 'color 0.15s',
-            }}
-          >+</button>
-        </div>
-      )}
-
-      {/* Add to cart */}
-      <button
-        onClick={handleAdd}
-        aria-label={`הוסף ${product.name} לעגלה`}
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.35rem',
-          padding: '0.65rem 1.35rem',
-          borderRadius: '999px',
-          background: added ? 'var(--accent)' : hovered ? 'var(--ink)' : 'transparent',
-          color: added || hovered ? 'var(--bg)' : 'var(--ink)',
-          border: '1.5px solid',
-          borderColor: added ? 'var(--accent)' : hovered ? 'var(--ink)' : 'var(--line-2)',
-          fontWeight: 700,
-          fontSize: '1.05rem',
-          letterSpacing: '0.05em',
-          textTransform: 'uppercase',
-          transition: 'all 0.25s ease',
-          minWidth: '8rem',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          flexShrink: 0,
-        }}
-      >
-        {added ? `✓ נוסף${qty > 1 ? ` (${qty})` : ''}` : 'הוסף לעגלה'}
-      </button>
+          {added ? `✓ נוסף${qty > 1 ? ` (${qty})` : ''}` : 'הוסף לעגלה'}
+        </button>
+      </div>
     </motion.article>
   )
 }

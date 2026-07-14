@@ -69,7 +69,7 @@ export default function Footer() {
               <span style={{ fontWeight: 300, color: 'var(--accent)' }}>matcha</span>
             </a>
             <p style={{ fontSize: '1rem', color: 'var(--mute)', lineHeight: 1.75, maxWidth: '18rem', marginBottom: '1.5rem' }}>
-              מאצ׳ה טקסי מדרג ראשון, ישירות מאוג׳י יפן. בלי ספקי ביניים, בלי פשרות.
+              המאצ׳ה של רוני  
             </p>
 
             {/* Social */}

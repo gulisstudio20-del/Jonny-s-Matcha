@@ -12,7 +12,7 @@ export const PRODUCTS = [
     label:  'Ceremonial Grade',
     name:   'מאצ׳ה טקסי',
     unit:   '30 גרם',
-    desc:   'הדרג הגבוה ביותר — לשתייה ישירה בקערה. צבע ירוק עז, טעם עשיר ועמוק.',
+    desc:   'הדרגה הכי גבוהה שיש — לשתייה ישירה מהקערה. ירוק עמוק, טעם עשיר שממלא את כל הפה.',
     price:  189,
     img:    heroBowl,
     imgAlt: 'מאצ׳ה סרמוניאלית',
@@ -23,7 +23,7 @@ export const PRODUCTS = [
     label:  'Premium Grade',
     name:   'מאצ׳ה פרימיום',
     unit:   '40 גרם',
-    desc:   'מצוין לשתייה ולאפייה. איזון מושלם בין איכות לערך.',
+    desc:   'טוב לשתייה וגם לאפייה. הבחירה שלנו כשרוצים את האיכות בלי לשלם על התג של הסרמוניאלית.',
     price:  149,
     img:    powderImg,
     imgAlt: 'מאצ׳ה פרימיום',
@@ -34,7 +34,7 @@ export const PRODUCTS = [
     label:  'Latte Blend',
     name:   'מאצ׳ה לאטה',
     unit:   '50 גרם',
-    desc:   'מיזוג מיוחד לחלב וחלב צמחי. קריים, מתוק בטבעיות, מושלם לכל יום.',
+    desc:   'מיזוג שיצרנו במיוחד לחלב וחלב צמחי — קרמי, מתוק בעדינות, זה שאתם שותים כל בוקר בלי לחשוב פעמיים.',
     price:  129,
     img:    matchaCup,
     imgAlt: 'מאצ׳ה לאטה קרה',
@@ -46,12 +46,12 @@ const ACCESSORIES = [
   {
     id:     'chasen',
     label:  'ציוד הכנה',
-    name:   'מצפצת במבוק',
+    name:   'צייסן במבוק',
     unit:   '1 יחידה',
-    desc:   'מצפצת Chasen מסורתית, 100 שיניים. מייצרת קצף חלק — השלב שעושה את ההבדל.',
+    desc:   'מטרפת Chasen מסורתית, 100 שיניים דקות. היא מה שהופך את הקצף מבועות גסות לקטיפה חלקה.',
     price:  65,
     img:    toolsImg,
-    imgAlt: 'מצפצת במבוק',
+    imgAlt: 'צייסן במבוק',
     badge:  null,
   },
   {
@@ -59,7 +59,7 @@ const ACCESSORIES = [
     label:  'ציוד הכנה',
     name:   'קערה + מסננת',
     unit:   'סט',
-    desc:   'קערת Chawan קרמית ומסננת נירוסטה — כל מה שצריך להכנה נכונה.',
+    desc:   'קערת Chawan קרמית ומסננת נירוסטה. שני הדברים שבלעדיהם אי אפשר להכין את זה נכון.',
     price:  89,
     img:    heroBowl,
     imgAlt: 'קערת מאצ׳ה',
@@ -359,7 +359,7 @@ export default function Products() {
                 lineHeight: 1.65,
               }}
             >
-              כל המוצרים שלנו מגיעים ישירות מגדלנים משפחתיים באוג׳י, קיוטו — ללא ספקי ביניים, ללא פשרות על איכות.
+              הכל מיפן,  ישר מיפן
             </p>
           </div>
 
@@ -408,7 +408,7 @@ export default function Products() {
               color: 'var(--accent)',
             }}
           >
-            מדריך דרגות
+             הנה קצת הסבר על הסוגים
           </span>
           <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
             <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Ceremonial</strong> — לשתייה טהורה בקערה

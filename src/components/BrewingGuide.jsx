@@ -40,7 +40,7 @@ const steps = [
   {
     number: '03',
     title: 'הקציפו בתנועת W',
-    desc: 'שפכו 70-80 מ"ל מים ב-80°C. הקציפו בתנועת W/M מהירה עם מצפצת (chasen) — לא בעיגולים. 20-30 שניות עד לקצף עדין עם בועיות זעירות.',
+    desc: 'שפכו 70-80 מ"ל מים ב-80°C. הקציפו בתנועת W/M מהירה עם צייסן (chasen) — לא בעיגולים. 20-30 שניות עד לקצף עדין עם בועיות זעירות.',
     metric: '70 מ"ל · 30 שניות',
     metricLabel: 'תנועת W/M',
     icon: (
@@ -136,7 +136,7 @@ export default function BrewingGuide() {
             </em>
           </h2>
           <p style={{ fontSize: '1.15rem', color: 'var(--ink-2)', lineHeight: 1.8, opacity: 0.75 }}>
-            ארבעה שלבים — אבל כל אחד מהם חשוב. כאן ההבדל בין מאצ׳ה מעולה לסתמית.
+            ארבעה שלבים פשוטים. אבל כל אחד מהם באמת קובע — זה מה שמפריד בין כוס טובה לכוס סתמית.
           </p>
         </motion.div>
 
@@ -259,7 +259,7 @@ export default function BrewingGuide() {
         {/* Expert tip */}
         <div style={{ marginBottom: '2.5rem' }}>
           <Tip label="טיפ של יוני">
-            אל תשתמשו במים רותחים. 100°C הורסים את האמינו חומצות שאחראיות לטעם המתוק והאוממי. מומלץ להמתין 3–4 דקות לאחר הרתיחה — או לערבב כף מים קרים לפני ההוספה.
+            אל תשתמשו במים רותחים. 100 מעלות הורסות את חומצות האמינו שאחראיות לטעם המתוק והאוממי. עדיף להמתין 3–4 דקות אחרי הרתיחה — או פשוט להוסיף כף מים קרים לפני שמוזגים.
           </Tip>
         </div>
 
@@ -272,7 +272,7 @@ export default function BrewingGuide() {
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}
         >
           <p style={{ fontSize: '1.05rem', color: 'rgba(10,20,7,0.7)', lineHeight: 1.75, maxWidth: '30rem' }}>
-            צריכים ציוד? <strong style={{ color: 'var(--ink)' }}>קערה, מצפצת ומסננת</strong> — אצלנו תוכלו למצוא הכל.
+            צריכים ציוד? <strong style={{ color: 'var(--ink)' }}>קערה, צייסן ומסננת</strong> — אצלנו תוכלו למצוא הכל.
           </p>
           <a
             href="#gifts"

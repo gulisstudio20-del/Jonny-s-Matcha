@@ -75,7 +75,7 @@ export default function Hero() {
             marginBottom: '2rem',
             maxWidth: 'min(28rem, 100%)',
           }}>
-            מאצ׳ה סרמוניאלית מדרג ראשון, ישירות מגדלנים משפחתיים באוג׳י, קיוטו. כוס אחת ותבינו את ההבדל.
+            מאצה של רוני.פשוט תשתו
           </motion.p>
 
           <motion.div

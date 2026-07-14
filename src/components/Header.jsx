@@ -64,9 +64,9 @@ export default function Header() {
               gap: '0.45rem',
               padding: '0.65rem 1.1rem',
               borderRadius: '999px',
-              border: '1.5px solid var(--line-2)',
+              border: `1.5px solid ${scrolled ? 'var(--line-2)' : 'rgba(242,237,226,0.35)'}`,
               background: 'transparent',
-              color: 'var(--ink)',
+              color: scrolled ? 'var(--ink)' : 'var(--bg)',
               fontWeight: 700,
               fontSize: '0.92rem',
               letterSpacing: '0.04em',
@@ -76,12 +76,12 @@ export default function Header() {
               minHeight: '44px',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--accent)'
-              e.currentTarget.style.color = 'var(--accent)'
+              e.currentTarget.style.borderColor = 'var(--accent-2)'
+              e.currentTarget.style.color = 'var(--accent-2)'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--line-2)'
-              e.currentTarget.style.color = 'var(--ink)'
+              e.currentTarget.style.borderColor = scrolled ? 'var(--line-2)' : 'rgba(242,237,226,0.35)'
+              e.currentTarget.style.color = scrolled ? 'var(--ink)' : 'var(--bg)'
             }}
           >
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
@@ -100,10 +100,11 @@ export default function Header() {
                   width: '18px',
                   height: '18px',
                   borderRadius: '50%',
-                  background: 'var(--ink)',
-                  color: 'var(--bg)',
+                  background: scrolled ? 'var(--ink)' : 'var(--bg)',
+                  color: scrolled ? 'var(--bg)' : 'var(--ink)',
                   fontSize: '10px',
                   fontWeight: 900,
+                  transition: 'background 0.4s ease, color 0.4s ease',
                 }}
                 aria-hidden="true"
               >
@@ -120,10 +121,11 @@ export default function Header() {
             style={{
               alignItems: 'center',
               gap: '0.2rem',
-              background: 'rgba(10,20,7,0.05)',
-              border: '1px solid var(--line)',
+              background: scrolled ? 'rgba(10,20,7,0.05)' : 'rgba(242,237,226,0.1)',
+              border: `1px solid ${scrolled ? 'var(--line)' : 'rgba(242,237,226,0.18)'}`,
               borderRadius: '999px',
               padding: '0.4rem 0.5rem',
+              transition: 'background 0.4s ease, border-color 0.4s ease',
             }}
           >
             {navLinks.map((link) => (
@@ -135,18 +137,18 @@ export default function Header() {
                   display: 'block',
                   padding: '0.5rem 1.2rem',
                   borderRadius: '999px',
-                  color: 'var(--mute)',
+                  color: scrolled ? 'var(--mute)' : 'rgba(242,237,226,0.85)',
                   fontSize: '0.97rem',
                   fontWeight: 500,
                   transition: 'color 0.2s, background 0.2s',
                   textDecoration: 'none',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--ink)'
-                  e.currentTarget.style.background = 'rgba(10,20,7,0.07)'
+                  e.currentTarget.style.color = scrolled ? 'var(--ink)' : 'var(--bg)'
+                  e.currentTarget.style.background = scrolled ? 'rgba(10,20,7,0.07)' : 'rgba(242,237,226,0.12)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--mute)'
+                  e.currentTarget.style.color = scrolled ? 'var(--mute)' : 'rgba(242,237,226,0.85)'
                   e.currentTarget.style.background = 'transparent'
                 }}
               >

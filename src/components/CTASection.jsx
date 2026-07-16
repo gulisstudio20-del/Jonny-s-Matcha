@@ -20,6 +20,10 @@ export default function CTASection() {
     await new Promise((r) => setTimeout(r, 900))
     setLoading(false)
     setSubmitted(true)
+
+    const subject = encodeURIComponent('הרשמה לעדכונים — jonny\'s matcha')
+    const body = encodeURIComponent(`מייל להרשמה: ${email}`)
+    window.location.href = `mailto:hello@jonnymatcha.co.il?subject=${subject}&body=${body}`
   }
 
   return (
@@ -84,7 +88,8 @@ export default function CTASection() {
             }}
           >
             מתכונים, עדכונים ומה שחדש — ישירות למייל.
-             בלי ספאם, גם אני לא אוהבת ספאם.
+            <br />
+            בלי ספאם, גם אני לא אוהבת ספאם.
           </p>
 
           <AnimatePresence mode="wait">
@@ -120,7 +125,7 @@ export default function CTASection() {
                   ברוכים הבאים למשפחה!
                 </p>
                 <p style={{ fontSize: '1rem', color: 'rgba(242,237,226,0.45)' }}>
-                  נשמח לעדכן אתכם בקרוב.
+                  אשמח לעדכן אתכם בקרוב.
                 </p>
               </motion.div>
             ) : (

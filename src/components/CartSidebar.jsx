@@ -93,9 +93,9 @@ export default function CartSidebar() {
                   <div>
                     <h3 className="text-xl font-extrabold text-ink mb-2">החנות בקרוב!</h3>
                     <p className="text-sm text-ink-soft leading-relaxed">
-                      אנחנו עובדים על מערכת התשלום.
+                      אני עובדת על מערכת התשלום.
                       <br />
-                      השאירו פרטים ונעדכן אתכם ברגע שהיא עולה לאוויר.
+                      השאירו פרטים ואעדכן אתכם ברגע שהיא עולה לאוויר.
                     </p>
                   </div>
                   <a

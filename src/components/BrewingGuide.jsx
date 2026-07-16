@@ -95,19 +95,13 @@ export default function BrewingGuide() {
           position: 'absolute', top: '-15%', right: '-10%',
           width: '55vw', height: '55vw', borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(61,110,28,0.22) 0%, transparent 65%)',
-          filter: 'blur(60px)',
+          filter: 'blur(40px)',
         }} />
         <div style={{
           position: 'absolute', bottom: '-10%', left: '-5%',
           width: '45vw', height: '45vw', borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(90,155,42,0.18) 0%, transparent 65%)',
-          filter: 'blur(50px)',
-        }} />
-        <div style={{
-          position: 'absolute', top: '40%', left: '40%',
-          width: '30vw', height: '30vw', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(138,122,90,0.12) 0%, transparent 65%)',
-          filter: 'blur(40px)',
+          filter: 'blur(35px)',
         }} />
       </div>
 
@@ -119,7 +113,7 @@ export default function BrewingGuide() {
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
-          style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)', maxWidth: '38rem' }}
+          style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)', maxWidth: '38rem', marginInline: 'auto', textAlign: 'center' }}
         >
           <h2 style={{
             fontFamily: 'var(--f-body)',
@@ -158,9 +152,9 @@ export default function BrewingGuide() {
               role="listitem"
               className="brewing-card"
               style={{
-                background: 'rgba(255,255,255,0.28)',
-                backdropFilter: 'blur(28px)',
-                WebkitBackdropFilter: 'blur(28px)',
+                background: 'rgba(255,255,255,0.4)',
+                backdropFilter: 'blur(14px)',
+                WebkitBackdropFilter: 'blur(14px)',
                 border: '1px solid rgba(255,255,255,0.65)',
                 borderRadius: '1.75rem',
                 padding: 'clamp(1.75rem, 3.5vw, 2.5rem)',
@@ -177,9 +171,9 @@ export default function BrewingGuide() {
                 position: 'absolute', top: '-2rem', left: '-2rem',
                 width: '10rem', height: '10rem', borderRadius: '50%',
                 background: `radial-gradient(circle, ${step.orb} 0%, transparent 70%)`,
-                filter: 'blur(24px)',
+                filter: 'blur(14px)',
                 pointerEvents: 'none',
-                opacity: 0.6,
+                opacity: 0.5,
               }} />
 
               {/* Watermark number */}
@@ -257,52 +251,11 @@ export default function BrewingGuide() {
         </motion.div>
 
         {/* Expert tip */}
-        <div style={{ marginBottom: '2.5rem' }}>
-          <Tip label="טיפ של יוני">
+        <div>
+          <Tip label="טיפ של רוני">
             אל תשתמשו במים רותחים. 100 מעלות הורסות את חומצות האמינו שאחראיות לטעם המתוק והאוממי. עדיף להמתין 3–4 דקות אחרי הרתיחה — או פשוט להוסיף כף מים קרים לפני שמוזגים.
           </Tip>
         </div>
-
-        {/* CTA */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}
-        >
-          <p style={{ fontSize: '1.05rem', color: 'rgba(10,20,7,0.7)', lineHeight: 1.75, maxWidth: '30rem' }}>
-            צריכים ציוד? <strong style={{ color: 'var(--ink)' }}>קערה, צייסן ומסננת</strong> — אצלנו תוכלו למצוא הכל.
-          </p>
-          <a
-            href="#gifts"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              padding: '0.9rem 1.85rem', borderRadius: '999px',
-              background: 'rgba(255,255,255,0.35)',
-              backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.7)',
-              color: 'var(--ink)', fontWeight: 700,
-              fontSize: '0.95rem', letterSpacing: '0.05em',
-              textTransform: 'uppercase', textDecoration: 'none',
-              boxShadow: '0 4px 16px rgba(10,20,7,0.08)',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--ink)'
-              e.currentTarget.style.color = 'var(--bg)'
-              e.currentTarget.style.borderColor = 'var(--ink)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.35)'
-              e.currentTarget.style.color = 'var(--ink)'
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)'
-            }}
-          >
-            <span>לסטים שלנו</span>
-            <span aria-hidden="true">←</span>
-          </a>
-        </motion.div>
 
       </div>
     </section>

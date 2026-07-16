@@ -6,10 +6,7 @@ import Hero from './components/Hero'
 import MarqueeBar from './components/MarqueeBar'
 import About from './components/About'
 import Products from './components/Products'
-import GiftSets from './components/GiftSets'
 import Process from './components/Process'
-import Quote from './components/Quote'
-import Testimonials from './components/Testimonials'
 import BrewingGuide from './components/BrewingGuide'
 import CTASection from './components/CTASection'
 import Footer from './components/Footer'
@@ -28,10 +25,7 @@ export default function App() {
         <About />
         <Products />
         <BrewingGuide />
-        <GiftSets />
         <Process />
-        <Quote />
-        <Testimonials />
         <CTASection />
       </main>
       <Footer />

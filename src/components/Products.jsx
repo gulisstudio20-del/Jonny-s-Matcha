@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import heroBowl  from '../../assets/images/hero-bowl.png'
-import powderImg  from '../../assets/images/powder.png'
-import matchaCup  from '../../assets/images/matcha-cup.jpg'
-import toolsImg   from '../../assets/images/tools.png'
+import ceremonialImg from '../../assets/images/pexels-ceremonial-powder-7144915.jpg'
+import premiumImg    from '../../assets/images/pexels-premium-tin-29821014.jpg'
+import matchaCup     from '../../assets/images/matcha-cup.jpg'
+import chasenImg     from '../../assets/images/pexels-chasen-8474092.jpg'
+import fullKitImg    from '../../assets/images/pexels-full-kit-29821017.jpg'
 import { useCart } from '../context/CartContext'
 
 export const PRODUCTS = [
@@ -12,10 +13,10 @@ export const PRODUCTS = [
     label:  'Ceremonial Grade',
     name:   'מאצ׳ה טקסי',
     unit:   '30 גרם',
-    desc:   'הדרגה הכי גבוהה שיש — לשתייה ישירה מהקערה. ירוק עמוק, טעם עשיר שממלא את כל הפה.',
+    desc:   'הדרגה הגבוהה ביותר — לשתייה ישירה מהקערה.',
     price:  189,
-    img:    heroBowl,
-    imgAlt: 'מאצ׳ה סרמוניאלית',
+    img:    ceremonialImg,
+    imgAlt: 'אבקת מאצ׳ה סרמוניאלית',
     badge:  'נמכר ביותר',
   },
   {
@@ -23,10 +24,10 @@ export const PRODUCTS = [
     label:  'Premium Grade',
     name:   'מאצ׳ה פרימיום',
     unit:   '40 גרם',
-    desc:   'טוב לשתייה וגם לאפייה. הבחירה שלנו כשרוצים את האיכות בלי לשלם על התג של הסרמוניאלית.',
+    desc:   'לשתייה וגם לאפייה, באיכות מצוינת.',
     price:  149,
-    img:    powderImg,
-    imgAlt: 'מאצ׳ה פרימיום',
+    img:    premiumImg,
+    imgAlt: 'מאצ׳ה פרימיום בקופסית',
     badge:  'חדש',
   },
   {
@@ -34,7 +35,7 @@ export const PRODUCTS = [
     label:  'Latte Blend',
     name:   'מאצ׳ה לאטה',
     unit:   '50 גרם',
-    desc:   'מיזוג שיצרנו במיוחד לחלב וחלב צמחי — קרמי, מתוק בעדינות, זה שאתם שותים כל בוקר בלי לחשוב פעמיים.',
+    desc:   'קרמי ועדין, מושלם לבוקר.',
     price:  129,
     img:    matchaCup,
     imgAlt: 'מאצ׳ה לאטה קרה',
@@ -48,21 +49,21 @@ const ACCESSORIES = [
     label:  'ציוד הכנה',
     name:   'צייסן במבוק',
     unit:   '1 יחידה',
-    desc:   'מטרפת Chasen מסורתית, 100 שיניים דקות. היא מה שהופך את הקצף מבועות גסות לקטיפה חלקה.',
+    desc:   'צייסן מסורתי במבוק, להקצפה חלקה.',
     price:  65,
-    img:    toolsImg,
-    imgAlt: 'צייסן במבוק',
+    img:    chasenImg,
+    imgAlt: 'צייסן במבוק ביד',
     badge:  null,
   },
   {
     id:     'chawan',
     label:  'ציוד הכנה',
-    name:   'קערה + מסננת',
-    unit:   'סט',
-    desc:   'קערת Chawan קרמית ומסננת נירוסטה. שני הדברים שבלעדיהם אי אפשר להכין את זה נכון.',
-    price:  89,
-    img:    heroBowl,
-    imgAlt: 'קערת מאצ׳ה',
+    name:   'ערכת הכנה מלאה',
+    unit:   'צייסן + מסננת + קערה + אבקה',
+    desc:   'כל מה שצריך כדי להתחיל, במקום אחד.',
+    price:  279,
+    img:    fullKitImg,
+    imgAlt: 'ערכת הכנת מאצ׳ה מלאה — קערה, מסננת, צייסן ואבקה',
     badge:  null,
   },
 ]
@@ -133,7 +134,7 @@ function ProductRow({ product, index }) {
           <span
             style={{
               fontFamily: "var(--f-display)",
-              fontSize: '0.88rem',
+              fontSize: '0.98rem',
               fontWeight: 700,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
@@ -149,7 +150,7 @@ function ProductRow({ product, index }) {
                 borderRadius: '999px',
                 background: 'var(--ink)',
                 color: 'var(--bg)',
-                fontSize: '0.88rem',
+                fontSize: '0.95rem',
                 letterSpacing: '0.06em',
                 fontWeight: 700,
               }}
@@ -160,7 +161,7 @@ function ProductRow({ product, index }) {
           <span
             style={{
               fontFamily: 'var(--f-body)',
-              fontSize: '1.05rem',
+              fontSize: '1.1rem',
               color: 'var(--mute-2)',
               fontWeight: 500,
             }}
@@ -186,11 +187,11 @@ function ProductRow({ product, index }) {
         <p
           style={{
             fontFamily: 'var(--f-body)',
-            fontSize: '1.1rem',
+            fontSize: '1.18rem',
             color: 'var(--mute)',
             lineHeight: 1.65,
             display: '-webkit-box',
-            WebkitLineClamp: 2,
+            WebkitLineClamp: 1,
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
           }}
@@ -319,69 +320,44 @@ export default function Products() {
         paddingBlock: 'clamp(4rem, 9vw, 8rem)',
         background: 'var(--bg)',
       }}
-      aria-label="הקולקציה שלנו"
+      aria-label="הקולקציה שלי"
     >
       <div className="container">
 
         {/* Section header */}
         <div
           style={{
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '1rem',
             paddingBottom: '1.5rem',
             marginBottom: '0.25rem',
             borderBottom: '2px solid var(--ink)',
+            textAlign: 'center',
           }}
         >
-          <div style={{ textAlign: 'right' }}>
-            <h2
-              style={{
-                fontFamily: 'var(--f-body)',
-                fontSize: 'clamp(2rem, 5vw, 3.4rem)',
-                fontWeight: 800,
-                color: 'var(--ink)',
-                lineHeight: 1.05,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              הקולקציה שלנו
-            </h2>
-            <p
-              style={{
-                fontFamily: 'var(--f-body)',
-                fontSize: '1rem',
-                color: 'var(--mute)',
-                marginTop: '0.5rem',
-                maxWidth: '36rem',
-                lineHeight: 1.65,
-              }}
-            >
-              הכל מיפן,  ישר מיפן
-            </p>
-          </div>
-
-          <a
-            href="#"
+          <h2
             style={{
-              fontSize: '1rem',
-              fontWeight: 600,
-              color: 'var(--mute)',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              transition: 'color 0.2s',
-              textDecoration: 'none',
-              flexShrink: 0,
+              fontFamily: 'var(--f-body)',
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+              fontWeight: 800,
+              color: 'var(--ink)',
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
           >
-            <span aria-hidden="true">←</span>
-            כל המוצרים
-          </a>
+            הקולקציה שלי
+          </h2>
+          <p
+            style={{
+              fontFamily: 'var(--f-body)',
+              fontSize: '1.1rem',
+              color: 'var(--mute)',
+              marginTop: '0.5rem',
+              maxWidth: '36rem',
+              lineHeight: 1.65,
+              marginInline: 'auto',
+            }}
+          >
+            כל מה שאני מביאה — ישר מיפן, בלי אמצעים.
+          </p>
         </div>
 
         {/* Grade guide */}
@@ -396,29 +372,30 @@ export default function Products() {
             marginBottom: '0.75rem',
             flexWrap: 'wrap',
             alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <span
             style={{
               fontFamily: "var(--f-display)",
-              fontSize: '0.88rem',
+              fontSize: '0.98rem',
               fontWeight: 700,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               color: 'var(--accent)',
             }}
           >
-             הנה קצת הסבר על הסוגים
+            הנה קצת הסבר על הסוגים
           </span>
-          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
+          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1.08rem', color: 'var(--mute)' }}>
             <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Ceremonial</strong> — לשתייה טהורה בקערה
           </span>
           <span className="grade-guide-sep" style={{ color: 'var(--line-2)' }}>·</span>
-          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
+          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1.08rem', color: 'var(--mute)' }}>
             <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Premium</strong> — שתייה + אפייה
           </span>
           <span className="grade-guide-sep" style={{ color: 'var(--line-2)' }}>·</span>
-          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1rem', color: 'var(--mute)' }}>
+          <span style={{ fontFamily: 'var(--f-body)', fontSize: '1.08rem', color: 'var(--mute)' }}>
             <strong style={{ color: 'var(--ink)', fontWeight: 700 }}>Latte Blend</strong> — עם חלב, כל יום
           </span>
         </div>
@@ -445,7 +422,7 @@ export default function Products() {
           <span
             style={{
               fontFamily: 'var(--f-body)',
-              fontSize: '1rem',
+              fontSize: '1.1rem',
               fontWeight: 700,
               color: 'var(--ink)',
               whiteSpace: 'nowrap',
@@ -463,39 +440,6 @@ export default function Products() {
               <ProductRow product={p} index={i} />
             </div>
           ))}
-        </div>
-
-        {/* Bridge to gift sets */}
-        <div
-          style={{
-            marginTop: '2rem',
-            padding: '1.25rem 1.5rem',
-            background: 'rgba(61,110,28,0.06)',
-            borderRadius: '0.85rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '1rem',
-          }}
-        >
-          <p style={{ fontSize: '1.05rem', color: 'var(--ink)', lineHeight: 1.7 }}>
-            מחפשים מתנה? יש לנו <strong>סטים מוכנים</strong> — מאצ׳ה + ציוד ביחד.
-          </p>
-          <a
-            href="#gifts"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              fontSize: '0.95rem', fontWeight: 700, color: 'var(--accent)',
-              textDecoration: 'none', whiteSpace: 'nowrap',
-              transition: 'color 0.2s',
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--accent)'}
-          >
-            לסטים המתנה
-            <span aria-hidden="true">←</span>
-          </a>
         </div>
 
         {/* Bottom note */}

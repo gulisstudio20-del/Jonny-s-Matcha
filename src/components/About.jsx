@@ -2,20 +2,13 @@ import { motion } from 'framer-motion'
 import lifestyleImg from '../../assets/images/pexels-olenkabohovyk-25686145.jpg'
 import { fadeRight, fadeLeft, viewport } from '../animations'
 
-const pills = [
-  { label: '100% אורגני' },
-  { label: 'Single Origin · אוג׳י' },
-  { label: 'Ceremonial Grade' },
-  { label: 'ללא תוספות' },
-]
-
 export default function About() {
   return (
     <section
       id="about"
       className="relative py-28 lg:py-36 overflow-hidden"
       style={{ background: 'var(--bg)' }}
-      aria-label="הסיפור שלנו"
+      aria-label="הסיפור שלי"
     >
       <div className="container relative">
         <div className="grid lg:grid-cols-2 gap-16 xl:gap-28 items-center">
@@ -49,6 +42,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
+            style={{ textAlign: 'center' }}
           >
             <h2
               style={{
@@ -72,28 +66,31 @@ export default function About() {
               כוס אחת בטוקיו שינתה הכל. הטעם, הצבע, המרקם — כשחזרתי לישראל וניסיתי למצוא משהו דומה, פשוט לא היה.
             </p>
             <p className="text-lg leading-[1.85] mb-10" style={{ color: 'var(--mute)' }}>
-              אז פשוט דאגתי לכם - והבאתי מיפן
+              אז פשוט דאגתי לכם, והבאתי אותה ישר מיפן.
             </p>
 
-            <ul
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '0.55rem',
-              }}
-              aria-label="יתרונות המוצר"
+            <div
+              className="inline-flex items-center gap-3 px-6 py-3.5 bg-white rounded-full shadow-sm"
+              style={{ border: '1px solid rgba(24,18,10,0.08)' }}
             >
-              {pills.map((pill) => (
-                <li
-                  key={pill.label}
-                  className="px-5 py-2.5 bg-white rounded-full text-base font-semibold shadow-sm
-                             transition-all duration-200 hover:shadow-md"
-                  style={{ border: '1px solid rgba(24,18,10,0.08)', color: 'var(--ink)' }}
-                >
-                  {pill.label}
-                </li>
-              ))}
-            </ul>
+              <span
+                aria-hidden="true"
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: 'var(--accent)',
+                  flexShrink: 0,
+                }}
+              />
+              <span className="text-base font-semibold" style={{ color: 'var(--ink)' }}>
+                100% אורגני
+              </span>
+              <span aria-hidden="true" style={{ color: 'var(--line-2)' }}>·</span>
+              <span className="text-base font-semibold" style={{ color: 'var(--ink)' }} dir="ltr">
+                Ceremonial Grade
+              </span>
+            </div>
           </motion.div>
         </div>
       </div>

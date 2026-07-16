@@ -8,21 +8,12 @@ function smoothScroll(e, href) {
 const shopLinks = [
   { href: '#products', label: 'מאצ׳ה טקסי' },
   { href: '#products', label: 'מאצ׳ה פרימיום' },
-  { href: '#gifts',    label: 'סטי מתנה' },
   { href: '#products', label: 'בלנד לאטה' },
 ]
 
 const infoLinks = [
-  { href: '#about',   label: 'הסיפור שלנו' },
-  { href: '#',        label: 'בלוג מאצ׳ה' },
-  { href: '#',        label: 'שאלות נפוצות' },
+  { href: '#about',   label: 'הסיפור שלי' },
   { href: '#contact', label: 'צור קשר' },
-]
-
-const socialLinks = [
-  { href: '#', label: 'Instagram' },
-  { href: '#', label: 'TikTok' },
-  { href: '#', label: 'Facebook' },
 ]
 
 export default function Footer() {
@@ -49,7 +40,7 @@ export default function Footer() {
           }}
         >
           {/* Brand column */}
-          <div>
+          <div style={{ textAlign: 'center' }}>
             <a
               href="#hero"
               onClick={(e) => smoothScroll(e, '#hero')}
@@ -68,40 +59,17 @@ export default function Footer() {
               <span style={{ fontWeight: 800 }}>jonny's</span>{' '}
               <span style={{ fontWeight: 300, color: 'var(--accent)' }}>matcha</span>
             </a>
-            <p style={{ fontSize: '1rem', color: 'var(--mute)', lineHeight: 1.75, maxWidth: '18rem', marginBottom: '1.5rem' }}>
-              המאצ׳ה של רוני  
+            <p style={{ fontSize: '1.1rem', color: 'var(--mute)', lineHeight: 1.75, maxWidth: '18rem', marginInline: 'auto' }}>
+              המאצ׳ה שלי — מאוג׳י, קיוטו, ישר אליכם.
             </p>
-
-            {/* Social */}
-            <div style={{ display: 'flex', gap: '1.25rem' }}>
-              {socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontSize: '0.97rem',
-                    fontWeight: 600,
-                    color: 'var(--mute)',
-                    textDecoration: 'none',
-                    transition: 'color 0.2s',
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
-                >
-                  {s.label}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Shop */}
-          <nav aria-label="חנות">
+          <nav aria-label="חנות" style={{ textAlign: 'center' }}>
             <h3
               style={{
                 fontFamily: 'var(--f-body)',
-                fontSize: '0.97rem',
+                fontSize: '1.1rem',
                 fontWeight: 700,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
@@ -111,13 +79,13 @@ export default function Footer() {
             >
               חנות
             </h3>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
               {shopLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => smoothScroll(e, link.href)}
-                    style={{ fontSize: '1.05rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s' }}
+                    style={{ fontSize: '1.2rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s' }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
                   >
@@ -129,11 +97,11 @@ export default function Footer() {
           </nav>
 
           {/* Info */}
-          <nav aria-label="מידע">
+          <nav aria-label="מידע" style={{ textAlign: 'center' }}>
             <h3
               style={{
                 fontFamily: 'var(--f-body)',
-                fontSize: '0.97rem',
+                fontSize: '1.1rem',
                 fontWeight: 700,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
@@ -143,13 +111,13 @@ export default function Footer() {
             >
               מידע
             </h3>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
               {infoLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => smoothScroll(e, link.href)}
-                    style={{ fontSize: '1.05rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s' }}
+                    style={{ fontSize: '1.2rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s' }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
                   >
@@ -161,11 +129,11 @@ export default function Footer() {
           </nav>
 
           {/* Contact / trust */}
-          <div>
+          <div style={{ textAlign: 'center' }}>
             <h3
               style={{
                 fontFamily: 'var(--f-body)',
-                fontSize: '0.97rem',
+                fontSize: '1.1rem',
                 fontWeight: 700,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
@@ -175,20 +143,20 @@ export default function Footer() {
             >
               צור קשר
             </h3>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
               <li>
                 <a
                   href="mailto:hello@jonnymatcha.co.il"
-                  style={{ fontSize: '0.95rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s', direction: 'ltr', display: 'inline-block' }}
+                  style={{ fontSize: '1.15rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s', direction: 'ltr', display: 'inline-block' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
                 >
                   hello@jonnymatcha.co.il
                 </a>
               </li>
-              <li style={{ fontSize: '1rem', color: 'var(--mute-2)' }}>משלוחים בכל הארץ</li>
-              <li style={{ fontSize: '1rem', color: 'var(--mute-2)' }}>✓ משלוח חינם בהזמנה ראשונה</li>
-              <li style={{ fontSize: '1rem', color: 'var(--mute-2)' }}>✓ 100% אורגני</li>
+              <li style={{ fontSize: '1.1rem', color: 'var(--mute)' }}>משלוחים בכל הארץ</li>
+              <li style={{ fontSize: '1.1rem', color: 'var(--mute)' }}>✓ משלוח חינם בהזמנה ראשונה</li>
+              <li style={{ fontSize: '1.1rem', color: 'var(--mute)' }}>✓ 100% אורגני</li>
             </ul>
           </div>
         </div>
@@ -198,25 +166,26 @@ export default function Footer() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
             flexWrap: 'wrap',
-            gap: '1rem',
+            gap: '1rem 2rem',
             paddingTop: '2rem',
             borderTop: '1px solid var(--line)',
+            textAlign: 'center',
           }}
         >
-          <p style={{ fontSize: '0.95rem', color: 'var(--mute-2)' }}>
+          <p style={{ fontSize: '1.15rem', color: 'var(--mute)' }}>
             © jonny's matcha {new Date().getFullYear()} — כל הזכויות שמורות
           </p>
 
           <nav style={{ display: 'flex', gap: '1.5rem' }} aria-label="קישורי מידע משפטי">
-            {[{ href: '/accessibility', label: 'נגישות' }, { href: '/privacy', label: 'פרטיות' }, { href: '/terms', label: 'תנאי שימוש' }].map((l) => (
+            {[{ href: '/accessibility.html', label: 'נגישות' }, { href: '/privacy.html', label: 'פרטיות' }, { href: '/terms.html', label: 'תנאי שימוש' }].map((l) => (
               <a
                 key={l.label}
                 href={l.href}
-                style={{ fontSize: '0.95rem', color: 'var(--mute-2)', textDecoration: 'none', transition: 'color 0.2s' }}
+                style={{ fontSize: '1.15rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute-2)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
               >
                 {l.label}
               </a>

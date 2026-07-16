@@ -56,7 +56,7 @@ export default function Process() {
             </em>
           </h2>
           <p className="mt-4 max-w-md mx-auto text-lg" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            כל שלב אנחנו עוקבים אחריו בעצמנו. בלי קיצורי דרך.
+            כל שלב אני עוקבת אחריו בעצמי. בלי קיצורי דרך.
           </p>
         </div>
 

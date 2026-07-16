@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import heroBowl from '../../assets/images/hero-latte.jpg'
+import heroLifestyle from '../../assets/images/matcha-lifestyle.jpg'
 
 const ease = [0.16, 1, 0.3, 1]
 
@@ -28,7 +28,8 @@ export default function Hero() {
           background: '#090F07',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          justifyContent: 'center',
+          textAlign: 'center',
           /* padding is in .hero-split-text CSS with mobile override */
         }}
       >
@@ -75,12 +76,12 @@ export default function Hero() {
             marginBottom: '2rem',
             maxWidth: 'min(28rem, 100%)',
           }}>
-            מאצה של רוני.פשוט תשתו
+            מאצ׳ה סרמוניאלית מיפן.  פשוט תשתו.
           </motion.p>
 
           <motion.div
             variants={reduced ? {} : itemV}
-            style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}
+            style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}
           >
             <a href="#products" className="btn-white">
               <span>לחנות</span>
@@ -124,11 +125,11 @@ export default function Hero() {
             style={{
               marginTop: '3rem',
               fontFamily: 'var(--f-display)',
-              fontSize: '0.72rem',
+              fontSize: '1.1rem',
               fontWeight: 600,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: 'rgba(242,237,226,0.25)',
+              color: 'rgba(242,237,226,0.45)',
             }}
           >
             Uji · Kyoto · Japan
@@ -164,8 +165,8 @@ export default function Hero() {
 
         {/* Hero image */}
         <img
-          src={heroBowl}
-          alt="קערת מאצ׳ה סרמוניאלית מוכנה לשתייה"
+          src={heroLifestyle}
+          alt="מאצ׳ה קרה בכוסות, מוגשת ברחוב"
           style={{
             position: 'absolute',
             inset: 0,
@@ -198,22 +199,21 @@ export default function Hero() {
         <div
           className="hero-vertical-label"
           aria-hidden="true"
-          dir="ltr"
+          dir="rtl"
           style={{
             position: 'absolute',
             bottom: '3rem',
             left: '1.25rem',
-            fontFamily: 'var(--f-display)',
-            fontSize: '0.58rem',
+            fontFamily: 'var(--f-body)',
+            fontSize: '0.72rem',
             fontWeight: 700,
-            letterSpacing: '0.28em',
-            textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.2)',
+            letterSpacing: '0.1em',
+            color: 'rgba(255,255,255,0.25)',
             writingMode: 'vertical-rl',
             zIndex: 4,
           }}
         >
-          Ceremonial Grade · Single Origin
+          טעמים של מאצ׳ה
         </div>
 
       </motion.div>

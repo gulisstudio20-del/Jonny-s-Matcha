@@ -4,7 +4,6 @@ import { useCart } from '../context/CartContext'
 
 const navLinks = [
   { href: '#products', label: 'חנות' },
-  { href: '#gifts',    label: 'סטים' },
   { href: '#about',    label: 'אודות' },
   { href: '#contact',  label: 'צור קשר' },
 ]

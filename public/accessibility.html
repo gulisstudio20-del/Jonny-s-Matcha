@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>הצהרת נגישות | jonny's matcha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;700;900&family=Heebo:wght@400;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #F2EDE2;
+        --ink: #0A1407;
+        --accent: #3D6E1C;
+        --mute: #6B6457;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'Heebo', system-ui, sans-serif;
+        line-height: 1.8;
+        font-size: 18px;
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: clamp(2rem, 6vw, 5rem) 1.5rem 5rem;
+      }
+      a.back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--mute);
+        text-decoration: none;
+        font-weight: 600;
+        margin-bottom: 2.5rem;
+      }
+      a.back:hover { color: var(--ink); }
+      h1 {
+        font-family: 'Barlow Condensed', system-ui, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        letter-spacing: -0.02em;
+        margin-bottom: 0.5rem;
+      }
+      .updated { color: var(--mute); font-size: 0.95rem; margin-bottom: 2.5rem; }
+      h2 {
+        font-size: 1.3rem;
+        font-weight: 800;
+        margin-top: 2.25rem;
+        margin-bottom: 0.75rem;
+      }
+      p { color: var(--ink); margin: 0 0 1rem; }
+      p.mute { color: var(--mute); }
+      ul { padding-inline-start: 1.25rem; margin: 0 0 1rem; }
+      li { margin-bottom: 0.4rem; }
+      a { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="/">→ חזרה לאתר</a>
+
+      <h1>הצהרת נגישות</h1>
+      <p class="updated">עודכן לאחרונה: יולי 2026</p>
+
+      <p>אני שואפת שהאתר של jonny's matcha יהיה נגיש וזמין לכל אדם, כולל אנשים עם מוגבלויות, בהתאם לתקן הישראלי (ת"י 5568) ולהנחיות WCAG 2.1 ברמה AA.</p>
+
+      <h2>מה נעשה באתר</h2>
+      <ul>
+        <li>ניגודיות צבעים נבדקה לעמידה בתקן AA.</li>
+        <li>ניווט מלא באמצעות מקלדת, כולל קישור "דלג לתוכן הראשי".</li>
+        <li>תמיכה בטכנולוגיות מסייעות (קוראי מסך) באמצעות תיוג ARIA לכל האזורים המרכזיים באתר.</li>
+        <li>תמיכה בהעדפת "הפחתת תנועה" (prefers-reduced-motion) למשתמשים רגישים לאנימציה.</li>
+      </ul>
+
+      <h2>בעיה בנגישות?</h2>
+      <p class="mute">אם נתקלתם בקושי או בעיה בנגישות האתר, אשמח לדעת ולתקן. אפשר לפנות ישירות במייל:</p>
+      <p><a href="mailto:hello@jonnymatcha.co.il">hello@jonnymatcha.co.il</a></p>
+    </main>
+  </body>
+</html>

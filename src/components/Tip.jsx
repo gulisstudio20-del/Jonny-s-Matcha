@@ -4,11 +4,11 @@ import { fadeUp, viewport } from '../animations'
 /**
  * Tip — inverted dark callout, visually distinct from every other surface.
  * Props:
- *   label    — the label text (default: "טיפ של יוני")
+ *   label    — the label text (default: "טיפ של רוני")
  *   icon     — optional SVG node; defaults to the ✦ mark
  *   children — the tip body text or JSX
  */
-export default function Tip({ label = 'טיפ של יוני', icon, children }) {
+export default function Tip({ label = 'טיפ של רוני', icon, children }) {
   return (
     <motion.aside
       variants={fadeUp}

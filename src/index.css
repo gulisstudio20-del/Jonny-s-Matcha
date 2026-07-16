@@ -456,8 +456,8 @@ input, select, textarea {
 /* ─── BrewingGuide cards — lighter blur on mobile for perf ──────────────────── */
 @media (max-width: 639px) {
   .brewing-card {
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
   }
 }
 

@@ -49,10 +49,10 @@ export default function Header() {
       >
         <div
           className="container"
-          style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '1rem' }}
+          style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto minmax(0, 1fr)', alignItems: 'center', gap: '0.5rem' }}
         >
           {/* Logo — start column (right in RTL) */}
-          <div style={{ justifySelf: 'start' }}>
+          <div style={{ justifySelf: 'start', minWidth: 0 }}>
             <a
               href="#hero"
               onClick={(e) => smoothScroll(e, '#hero')}
@@ -60,11 +60,12 @@ export default function Header() {
               aria-label="jonny's matcha — חזרה לראש הדף"
               style={{
                 fontFamily: 'var(--f-display)',
-                fontSize: '1.55rem',
+                fontSize: 'clamp(1.15rem, 4.5vw, 1.55rem)',
                 letterSpacing: '-0.03em',
                 color: scrolled ? 'var(--ink)' : 'var(--bg)',
                 textDecoration: 'none',
                 transition: 'color 0.4s ease',
+                whiteSpace: 'nowrap',
               }}
             >
               <span style={{ fontWeight: 800 }}>jonny's</span>{' '}

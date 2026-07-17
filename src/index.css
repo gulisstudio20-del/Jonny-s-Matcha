@@ -35,6 +35,8 @@
     direction: rtl;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
@@ -42,6 +44,7 @@
     background-color: var(--bg);
     color: var(--ink);
     overflow-x: hidden;
+    width: 100%;
     line-height: 1.85;
     font-size: 20px;
     -webkit-font-smoothing: antialiased;

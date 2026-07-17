@@ -52,7 +52,7 @@ export default function Header() {
           style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto minmax(0, 1fr)', alignItems: 'center', gap: '0.5rem' }}
         >
           {/* Logo — start column (right in RTL) */}
-          <div style={{ justifySelf: 'start', minWidth: 0 }}>
+          <div style={{ gridColumn: '1', justifySelf: 'start', minWidth: 0 }}>
             <a
               href="#hero"
               onClick={(e) => smoothScroll(e, '#hero')}
@@ -79,6 +79,7 @@ export default function Header() {
             aria-label="ניווט ראשי"
             className="hidden lg:flex"
             style={{
+              gridColumn: '2',
               justifySelf: 'center',
               alignItems: 'center',
               gap: '0.2rem',
@@ -120,7 +121,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile burger — end column (left in RTL) */}
-          <div style={{ justifySelf: 'end' }}>
+          <div style={{ gridColumn: '3', justifySelf: 'end' }}>
             <button
               onClick={toggleMenu}
               aria-expanded={menuOpen}

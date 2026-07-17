@@ -21,7 +21,7 @@ export default function CTASection() {
     setLoading(false)
     setSubmitted(true)
 
-    const subject = encodeURIComponent('הרשמה לעדכונים — jonny\'s matcha')
+    const subject = encodeURIComponent('הרשמה למכירה מוקדמת — jonny\'s matcha')
     const body = encodeURIComponent(`מייל להרשמה: ${email}`)
     window.location.href = `mailto:hello@jonnymatcha.co.il?subject=${subject}&body=${body}`
   }
@@ -35,7 +35,7 @@ export default function CTASection() {
         position: 'relative',
         overflow: 'hidden',
       }}
-      aria-label="הרשמה לניוזלטר"
+      aria-label="הרשמה למכירה מוקדמת"
     >
       {/* Subtle green orb */}
       <div
@@ -74,7 +74,7 @@ export default function CTASection() {
               marginBottom: '1.25rem',
             }}
           >
-            הצטרפו למשפחה
+            הצטרפו למכירה המוקדמת
           </h2>
 
           <p
@@ -87,9 +87,7 @@ export default function CTASection() {
               margin: '0 auto 2.5rem',
             }}
           >
-            מתכונים, עדכונים ומה שחדש — ישירות למייל.
-            <br />
-            בלי ספאם, גם אני לא אוהבת ספאם.
+            השאירו מייל ותהיו הראשונים לדעת כשהמאצ׳ה שלי יוצאת למכירה.
           </p>
 
           <AnimatePresence mode="wait">
@@ -122,10 +120,10 @@ export default function CTASection() {
                   ✓
                 </div>
                 <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--bg)', marginBottom: '0.4rem' }}>
-                  ברוכים הבאים למשפחה!
+                  תודה!
                 </p>
                 <p style={{ fontSize: '1rem', color: 'rgba(242,237,226,0.45)' }}>
-                  אשמח לעדכן אתכם בקרוב.
+                  תהיו בין הראשונים לדעת כשזה יוצא.
                 </p>
               </motion.div>
             ) : (
@@ -134,7 +132,7 @@ export default function CTASection() {
                 onSubmit={handleSubmit}
                 noValidate
                 exit={{ opacity: 0 }}
-                aria-label="טופס הרשמה"
+                aria-label="טופס הרשמה למכירה מוקדמת"
                 style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '28rem', margin: '0 auto' }}
               >
                 {/* Honeypot — zero-size hidden, not left:-9999px which breaks RTL scrollWidth */}
@@ -219,7 +217,7 @@ export default function CTASection() {
                         />
                         שולח...
                       </>
-                    ) : 'הירשמו'}
+                    ) : 'שלחו'}
                   </button>
                 </div>
               </motion.form>

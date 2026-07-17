@@ -5,15 +5,15 @@ function smoothScroll(e, href) {
   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' })
 }
 
-const shopLinks = [
-  { href: '#products', label: 'מאצ׳ה טקסי' },
-  { href: '#products', label: 'מאצ׳ה פרימיום' },
-  { href: '#products', label: 'בלנד לאטה' },
+const benefits = [
+  '100% אורגני',
+  'דרגה סרמוניאלית',
+  'ישירות מאוג׳י יפן',
 ]
 
 const infoLinks = [
   { href: '#about',   label: 'הסיפור שלי' },
-  { href: '#contact', label: 'צור קשר' },
+  { href: '#contact', label: 'הרשמה מוקדמת' },
 ]
 
 export default function Footer() {
@@ -59,13 +59,13 @@ export default function Footer() {
               <span style={{ fontWeight: 800 }}>jonny's</span>{' '}
               <span style={{ fontWeight: 300, color: 'var(--accent)' }}>matcha</span>
             </a>
-            <p style={{ fontSize: '1.1rem', color: 'var(--mute)', lineHeight: 1.75, maxWidth: '18rem', marginInline: 'auto' }}>
+            <p style={{ fontSize: '1.1rem', color: 'var(--mute)', lineHeight: 1.75, whiteSpace: 'nowrap' }}>
               המאצ׳ה שלי — מאוג׳י, קיוטו, ישר אליכם.
             </p>
           </div>
 
-          {/* Shop */}
-          <nav aria-label="חנות" style={{ textAlign: 'center' }}>
+          {/* Services */}
+          <div style={{ textAlign: 'center' }}>
             <h3
               style={{
                 fontFamily: 'var(--f-body)',
@@ -77,24 +77,16 @@ export default function Footer() {
                 marginBottom: '1.5rem',
               }}
             >
-              חנות
+              היתרונות
             </h3>
             <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
-              {shopLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => smoothScroll(e, link.href)}
-                    style={{ fontSize: '1.2rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s' }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
-                  >
-                    {link.label}
-                  </a>
+              {benefits.map((label) => (
+                <li key={label} style={{ fontSize: '1.2rem', color: 'var(--mute)' }}>
+                  {label}
                 </li>
               ))}
             </ul>
-          </nav>
+          </div>
 
           {/* Info */}
           <nav aria-label="מידע" style={{ textAlign: 'center' }}>
@@ -145,18 +137,17 @@ export default function Footer() {
             </h3>
             <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
               <li>
+                {/* Placeholder — not a real WhatsApp number yet, swap the href once there is one */}
                 <a
-                  href="mailto:hello@jonnymatcha.co.il"
-                  style={{ fontSize: '1.15rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s', direction: 'ltr', display: 'inline-block' }}
+                  href="#"
+                  style={{ fontSize: '1.15rem', color: 'var(--mute)', textDecoration: 'none', transition: 'color 0.2s' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--mute)'}
                 >
-                  hello@jonnymatcha.co.il
+                  וואטסאפ
                 </a>
               </li>
-              <li style={{ fontSize: '1.1rem', color: 'var(--mute)' }}>משלוחים בכל הארץ</li>
-              <li style={{ fontSize: '1.1rem', color: 'var(--mute)' }}>✓ משלוח חינם בהזמנה ראשונה</li>
-              <li style={{ fontSize: '1.1rem', color: 'var(--mute)' }}>✓ 100% אורגני</li>
+              <li style={{ fontSize: '1.1rem', color: 'var(--mute)' }}>משלוחים לכל הארץ</li>
             </ul>
           </div>
         </div>

@@ -1,10 +1,13 @@
 const ITEMS = [
-  { text: 'ישירות מיפן',       lang: 'he' },
-  { text: 'משלוחים לכל הארץ', lang: 'he' },
+  { text: 'ישירות מיפן',            lang: 'he' },
+  { text: 'מאצ׳ה סרמוניאלית אורגנית', lang: 'he' },
 ]
 
 export default function MarqueeBar() {
-  const doubled = [...ITEMS, ...ITEMS]
+  // The track animates translateX(-50%), so its first half must be at least as
+  // wide as the viewport — otherwise a blank gap shows before the loop restarts.
+  // With only 2 short items, 16 repetitions keep each half wider than any screen.
+  const repeated = Array.from({ length: 16 }, () => ITEMS).flat()
 
   return (
     <div
@@ -12,7 +15,7 @@ export default function MarqueeBar() {
       aria-label="יתרונות המוצר"
     >
       <div className="marquee-track" aria-hidden="true">
-        {doubled.map((item, i) => (
+        {repeated.map((item, i) => (
           <span
             key={i}
             style={{

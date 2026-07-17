@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useCart } from '../context/CartContext'
 
 const navLinks = [
-  { href: '#products', label: 'חנות' },
-  { href: '#about',    label: 'אודות' },
-  { href: '#contact',  label: 'צור קשר' },
+  { href: '#menu',    label: 'המאצ׳ה שלי' },
+  { href: '#about',   label: 'אודות' },
+  { href: '#contact', label: 'הרשמה מוקדמת' },
 ]
 
 function smoothScroll(e, href) {
@@ -18,7 +17,6 @@ function smoothScroll(e, href) {
 export default function Header() {
   const [scrolled,  setScrolled]  = useState(false)
   const [menuOpen,  setMenuOpen]  = useState(false)
-  const { count, setIsOpen: openCart } = useCart()
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60)
@@ -51,73 +49,36 @@ export default function Header() {
       >
         <div
           className="container"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+          style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '1rem' }}
         >
-          {/* Cart — right side (start in RTL) */}
-          <button
-            onClick={() => openCart(true)}
-            aria-label={`עגלת קניות — ${count} פריטים`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              padding: '0.65rem 1.1rem',
-              borderRadius: '999px',
-              border: `1.5px solid ${scrolled ? 'var(--line-2)' : 'rgba(242,237,226,0.35)'}`,
-              background: 'transparent',
-              color: scrolled ? 'var(--ink)' : 'var(--bg)',
-              fontWeight: 700,
-              fontSize: '0.92rem',
-              letterSpacing: '0.04em',
-              cursor: 'pointer',
-              transition: 'border-color 0.2s, color 0.2s',
-              position: 'relative',
-              minHeight: '44px',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--accent-2)'
-              e.currentTarget.style.color = 'var(--accent-2)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = scrolled ? 'var(--line-2)' : 'rgba(242,237,226,0.35)'
-              e.currentTarget.style.color = scrolled ? 'var(--ink)' : 'var(--bg)'
-            }}
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <path d="M16 10a4 4 0 01-8 0" />
-            </svg>
-            {/* Hide label on mobile — icon + badge is enough */}
-            <span className="hidden sm:inline">עגלה</span>
-            {count > 0 && (
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '18px',
-                  height: '18px',
-                  borderRadius: '50%',
-                  background: scrolled ? 'var(--ink)' : 'var(--bg)',
-                  color: scrolled ? 'var(--bg)' : 'var(--ink)',
-                  fontSize: '10px',
-                  fontWeight: 900,
-                  transition: 'background 0.4s ease, color 0.4s ease',
-                }}
-                aria-hidden="true"
-              >
-                {count}
-              </span>
-            )}
-          </button>
+          {/* Logo — start column (right in RTL) */}
+          <div style={{ justifySelf: 'start' }}>
+            <a
+              href="#hero"
+              onClick={(e) => smoothScroll(e, '#hero')}
+              dir="ltr"
+              aria-label="jonny's matcha — חזרה לראש הדף"
+              style={{
+                fontFamily: 'var(--f-display)',
+                fontSize: '1.55rem',
+                letterSpacing: '-0.03em',
+                color: scrolled ? 'var(--ink)' : 'var(--bg)',
+                textDecoration: 'none',
+                transition: 'color 0.4s ease',
+              }}
+            >
+              <span style={{ fontWeight: 800 }}>jonny's</span>{' '}
+              <span style={{ fontWeight: 300, color: scrolled ? 'var(--accent)' : 'rgba(90,155,42,0.9)' }}>matcha</span>
+            </a>
+          </div>
 
-          {/* Desktop nav — center, glass pill */}
+          {/* Desktop nav — center column, glass pill */}
           <nav
             role="navigation"
             aria-label="ניווט ראשי"
             className="hidden lg:flex"
             style={{
+              justifySelf: 'center',
               alignItems: 'center',
               gap: '0.2rem',
               background: scrolled ? 'rgba(10,20,7,0.05)' : 'rgba(242,237,226,0.1)',
@@ -141,6 +102,7 @@ export default function Header() {
                   fontWeight: 500,
                   transition: 'color 0.2s, background 0.2s',
                   textDecoration: 'none',
+                  whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = scrolled ? 'var(--ink)' : 'var(--bg)'
@@ -156,27 +118,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Logo + mobile burger — left side (end in RTL) */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <a
-              href="#hero"
-              onClick={(e) => smoothScroll(e, '#hero')}
-              dir="ltr"
-              aria-label="jonny's matcha — חזרה לראש הדף"
-              style={{
-                fontFamily: 'var(--f-display)',
-                fontSize: '1.55rem',
-                letterSpacing: '-0.03em',
-                color: scrolled ? 'var(--ink)' : 'var(--bg)',
-                textDecoration: 'none',
-                transition: 'color 0.4s ease',
-              }}
-            >
-              <span style={{ fontWeight: 800 }}>jonny's</span>{' '}
-              <span style={{ fontWeight: 300, color: scrolled ? 'var(--accent)' : 'rgba(90,155,42,0.9)' }}>matcha</span>
-            </a>
-
-            {/* Mobile burger — 44×44 touch target */}
+          {/* Mobile burger — end column (left in RTL) */}
+          <div style={{ justifySelf: 'end' }}>
             <button
               onClick={toggleMenu}
               aria-expanded={menuOpen}
@@ -273,17 +216,6 @@ export default function Header() {
                 {link.label}
               </motion.a>
             ))}
-
-            <motion.button
-              onClick={() => { openCart(true); closeMenu() }}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navLinks.length * 0.07 }}
-              className="btn-dark"
-              style={{ marginTop: '0.5rem' }}
-            >
-              עגלת קניות
-            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

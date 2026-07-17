@@ -76,46 +76,18 @@ export default function Hero() {
             marginBottom: '2rem',
             maxWidth: 'min(28rem, 100%)',
           }}>
-            מאצ׳ה סרמוניאלית מיפן.  פשוט תשתו.
+            מאצ׳ה סרמוניאלית אורגנית, ישירות מאוג׳י שביפן.
+            <br />
+            פשוט תשתו.
           </motion.p>
 
           <motion.div
             variants={reduced ? {} : itemV}
             style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}
           >
-            <a href="#products" className="btn-white">
-              <span>לחנות</span>
+            <a href="#about" className="btn-white">
+              <span>גלו עוד</span>
               <span aria-hidden="true">←</span>
-            </a>
-            <a
-              href="#about"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.95rem 2.2rem',
-                borderRadius: '999px',
-                border: '1px solid rgba(242,237,226,0.22)',
-                color: 'rgba(242,237,226,0.78)',
-                fontWeight: 600,
-                fontSize: '1rem',
-                letterSpacing: '0.07em',
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-                transition: 'border-color 0.2s, color 0.2s, transform 0.2s',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(242,237,226,0.5)'
-                e.currentTarget.style.color = 'rgba(242,237,226,1)'
-                e.currentTarget.style.transform = 'translateY(-2px)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(242,237,226,0.22)'
-                e.currentTarget.style.color = 'rgba(242,237,226,0.78)'
-                e.currentTarget.style.transform = 'translateY(0)'
-              }}
-            >
-              גלו עוד
             </a>
           </motion.div>
 
@@ -213,7 +185,7 @@ export default function Hero() {
             zIndex: 4,
           }}
         >
-          טעמים של מאצ׳ה
+          מאצ׳ה סרמוניאלית · אוג׳י
         </div>
 
       </motion.div>
